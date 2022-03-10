@@ -3,6 +3,10 @@
   text-align: center;
   border-radius: 20px;
   padding: 20px;
+  transition: 0.3s all ease-in-out;
+  &:hover{
+    box-shadow: 0 0 15px rgb(179, 178, 178);
+  }
 }
 
 .card img {
