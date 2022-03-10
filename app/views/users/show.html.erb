@@ -1,10 +1,6 @@
-<h1>User Page</h1>
-
-<h1><%= @user.first_name %></h1>
-
-<div class="container">
+<div class="container col-12" style="margin-top: 20px">
   <div class="container" id="main-dashboard">
-    <div class="card mb-3" style="border-radius: 10px; padding: 10px; margin: 3px 6px;">
+    <div class="card mb-3" style="border-radius: 10px; padding: 10px; margin: 3px 6px; max-width:100%">
       <div class="row g-0">
         <div class="col-md-4 avatar-box">
           <h5 class="card-title" style="text-align:center;">Welcome User!</h5>
@@ -12,25 +8,46 @@
         </div>
         <div class="col-md-8 info-box">
           <div class="saldo-box">
-            <h2>Saldo: R$0,00</h1>
+            <h2>Balance: R$0,00</h1>
           </div>
           <div class="both-details-box">
             <div class="details-box">
               <p>R$ 0,00</p>
-              <p>Receitas</p>
+              <p>Income</p>
             </div>
             <div class="details-box">
               <p>R$ 0,00</p>
-              <p>Despesas</p>
+              <p>Expenses</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card mb-3" style="border-radius: 10px; padding:10px; margin: 3px 6px;">
+    <div class="card mb-3" style="border-radius: 10px; padding:10px; margin: 3px 6px; max-width:30%; max-width:100%">
       <div class="row g-0">
         <h1 style="text-align:center;">Quick Actions</h1>
       </div>
+      <div class="container quick-action-buttons">
+        <div class="card-quick">
+          <h1><%= link_to "+", new_transaction_path(:transaction => { :type_transaction => "income", :user_id => "id" }) %></h1>
+          <p>Add Income</p>
+        </div>
+        <div class="card-quick">
+          <h1>-</h1>
+          <p>Add Expense</p>
+        </div>
+        <div class="card-quick">
+          <h1>Stats</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container flex-direction-row-center">
+     <div class="card">
+      <h1>BALANCE VISUALIZATION</h1>
+    </div>
+    <div class="card">
+      <h1>CATEGORIES VISUALIZATION</h1>
     </div>
   </div>
 </div>
