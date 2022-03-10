@@ -1,0 +1,41 @@
+
+<div class="row justify-content-center">
+  <div class="container-expenses">
+      <div class ="navbar-expenses">
+        <div class="add-expense">
+          Lançamentos
+          <button>
+            +
+          </button>
+        </div>
+        <div class="time-selection">
+          <button class="button-chevron" > < </button>
+          <button class="button-time"> Mês </button>
+          <button class="button-chevron"> > </button>
+        </div>
+      </div>
+      <div class="table-expenses">
+          <div>Filtrar por...</div>
+          <div class = "income-expense">
+            <a href="#">receitas</a>
+            <a href="#">despesas</a>
+          </div>
+      </div>
+
+
+       <% # @transactions.where("").each do |transaction| %>
+       <div>
+       <% #Escrever os parametros de transações %>
+       </div>
+       <% #end %>
+
+
+      <div class="footer-expenses">
+        <div>Meu saldo</div>
+        <div>
+          <%= # @transactions.where("").pluck(:value).reduce(:+) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

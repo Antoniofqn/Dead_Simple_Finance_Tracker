@@ -1,0 +1,69 @@
+.navbar-expenses {
+  justify-content: space-around;
+  background: white;
+  display: flex;
+  border-radius: 10px 10px 0px 0px;
+  padding: 16px 0px;
+  align-items: center;
+
+  .add-expense {
+      button {
+        width: 30px;
+        border-radius: 100%;
+      }
+  }
+
+  .time-selection {
+
+    flex-grow: 0.65;
+
+    .button-time {
+      border-radius: 15px 15px 15px 15px;
+      border: 2px solid;
+      background: white;
+      padding: 5px;
+      width: 30%;
+    }
+
+    .button-chevron {
+      border-radius: 100%;
+      width: 30px;
+    }
+  }
+
+}
+
+.table-expenses{
+  justify-content: space-around;
+  align-items: center;
+  background: white;
+  display: flex;
+  border-top:2px solid;
+
+  .income-expense {
+      padding: 10px 0px;
+      flex-grow: 0.47;
+
+      a{
+          padding: 20px;
+          text-decoration: none;
+      }
+    }
+
+}
+.container-expenses {
+  margin: 60px auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 750px;
+}
+
+.footer-expenses {
+  border-top:2px solid;
+  background: white;
+  display: flex;
+  border-radius: 0px 0px 10px 10px;
+  justify-content: space-around;
+  padding:10px;
+  align-items: center;
+}
