@@ -1,0 +1,14 @@
+#main-dashboard {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  max-height: 30%;
+  max-width: 100%;
+}
+
+.flex-direction-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
