@@ -1,3 +1,19 @@
+%brightness-action {
+  &:hover{
+    filter: brightness(50%);
+  }
+}
+
+.container-expenses {
+  margin: 60px auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 750px;
+  font-size: large;
+  font-weight: bold;
+
+}
+
 .navbar-expenses {
   justify-content: space-around;
   background: white;
@@ -6,10 +22,16 @@
   padding: 16px 0px;
   align-items: center;
 
+
   .add-expense {
+      @extend %brightness-action;
       button {
-        width: 30px;
+        width: 35px;
+        height: 35px;
         border-radius: 100%;
+        background-color: $red;
+        border: none;
+        font-size: x-large;
       }
   }
 
@@ -19,15 +41,20 @@
 
     .button-time {
       border-radius: 15px 15px 15px 15px;
-      border: 2px solid;
+      border:none;
       background: white;
       padding: 5px;
       width: 30%;
+      color: $money;
+      font-weight: bold;
     }
 
     .button-chevron {
+      @extend %brightness-action;
       border-radius: 100%;
       width: 30px;
+      border: none;
+      background-color:white;
     }
   }
 
@@ -45,25 +72,31 @@
       flex-grow: 0.47;
 
       a{
+          color: $money;
           padding: 20px;
           text-decoration: none;
       }
     }
 
 }
-.container-expenses {
-  margin: 60px auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 750px;
+
+.expense-card {
+  display: flex;
+  padding:20px;
+  background-color: white;
+  justify-content: space-around;
+  align-items: center;
+  &:hover{
+    background-color: $money;
+  }
 }
 
 .footer-expenses {
-  border-top:2px solid;
+  justify-content: space-around;
   background: white;
   display: flex;
+  border-top: 2px solid;
   border-radius: 0px 0px 10px 10px;
-  justify-content: space-around;
   padding:10px;
   align-items: center;
 }

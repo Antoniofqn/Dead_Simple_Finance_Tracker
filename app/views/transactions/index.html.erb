@@ -23,17 +23,20 @@
       </div>
 
 
-       <% # @transactions.where("").each do |transaction| %>
-       <div>
-       <% #Escrever os parametros de transações %>
+       <% @transactions.each do |transaction| %>
+       <div class="expense-card">
+          <%= transaction.category%>
+          <%= transaction.type_transaction =="expense" ? transaction.value * -1 : transaction.value%>
+          <%= transaction.tag %>
+          <%= transaction.date %>
        </div>
-       <% #end %>
+       <% end %>
 
 
       <div class="footer-expenses">
         <div>Meu saldo</div>
         <div>
-          <%= # @transactions.where("").pluck(:value).reduce(:+) %>
+          <%= @transactions.pluck(:type_transaction == "expense" ? :value * -1 : :value ).reduce(:+) %>
         </div>
       </div>
     </div>
