@@ -17,8 +17,8 @@
       <div class="table-expenses">
           <div>Filter by...</div>
           <div class = "income-expense">
-            <%= button_to "income", user_transactions_path, method: :get, params: {query: "income"} %>
-            <%= button_to "expenses", user_transactions_path, method: :get, params: {query: "expense"} %>
+            <%= button_to "income", user_transactions_path, method: :get, params: {query: "Income"} %>
+            <%= button_to "expenses", user_transactions_path, method: :get, params: {query: "Expense"} %>
             <%= button_to "all", user_transactions_path, method: :get, params: {query: "all"} %>
           </div>
       </div>
@@ -27,7 +27,7 @@
        <% @transactions.each do |transaction| %>
        <div class="expense-card">
           <%= transaction.category%>
-          <%= transaction.type_transaction =="expense" ? transaction.value * -1 : transaction.value%>
+          <%= transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value%>
           <%= transaction.tag %>
           <%= transaction.date %>
        </div>
