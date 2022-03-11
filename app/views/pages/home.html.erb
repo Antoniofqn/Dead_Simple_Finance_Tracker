@@ -1,9 +1,9 @@
-<main class="mt-5">
-  <div class="container">
+<main>
+  <div class="container m-0" id="backhome">
     <div class="row justify-content-between">
       <div class="col-12 col-md-6 col-lg-3">
-        <h1>Welcome to Dead Simple Finance</h1>
-        <h3>Track your finance with our simple app</h3>
+        <h1 style="color: white; font-family: 'Raleway', arial; line-height: 50px; font-size: 56px; font-weight: bold;">Welcome to Dead Simple Finance</h1>
+        <h3 style="color: white; font-family: 'Raleway', arial;">Track your finance with our simple app</h3>
         <%= form_tag new_user_registration_path, method: :get, class: "row" do %>
           <%= text_field_tag "email", nil, placeholder: "Please enter your e-mail", class: "form-control" %>
           <%= submit_tag "Sign in now!", class: "btn btn-primary" %>
@@ -14,20 +14,20 @@
       </div>
     </div>
   </div>
-  <section class="mb-5 mt-4">
+  <section class="mb-5" style="margin-top: -30px;">
     <div class="container">
       <div class="row align-items-center justify-content-between">
-          <div class="card-home card col-12 col-md-3 col-lg-3">
+          <div class="card-home card col-12 col-md-3 col-lg-3 pt-3 pb-3">
             <img src="https://img.icons8.com/cotton/512/000000/add-dollar--v2.png"/>
             <h4>Track Your Finances!</h4>
             <p>Control your finances every day.</p>
           </div>
-          <div class="card-home card col-12 col-md-3 col-lg-3">
+          <div class="card-home card col-12 col-md-3 col-lg-3 pt-3 pb-3">
             <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/512/000000/external-savings-investment-kiranshastry-lineal-kiranshastry.png"/>
             <h4>Increase Your Savings!</h4>
             <p>Controlling your finances helps to save a lot of money.</p>
           </div>
-          <div class="card-home card col-12 col-md-3 col-lg-3">
+          <div class="card-home card col-12 col-md-3 col-lg-3 pt-3 pb-3">
             <img src="https://img.icons8.com/ios/500/000000/easy.png"/>
             <h4>Easy To Use!</h4>
             <p>A very user friendly platform, with a lot of functions!</p>
