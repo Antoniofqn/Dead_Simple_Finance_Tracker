@@ -1,22 +1,23 @@
 <div class= "container col-12 mb-5 pb-5" style="margin-top: 20px">
   <div class="container" id="main-dashboard">
-    <div class="card mb-3" style="border-radius: 10px; padding: 10px; margin: 3px 6px; max-width:100%">
+    <div class="card mb-3" style="border-radius: 10px; padding: 20px; margin: 3px 6px; max-width:100%">
       <div class="row g-0">
         <div class="col-md-4 avatar-box">
-          <h5 class="card-title" style="text-align:center;">Welcome User!</h5>
+          <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
           <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar-xxxlarge" alt="...">
         </div>
         <div class="col-md-8 info-box">
           <div class="saldo-box">
-            <h2>Balance: R$0,00</h1>
+            <h2>Balance: <br>
+            R$ <%= format("%.2f", @user.fetch_total_income.to_f - @user.fetch_total_expense.to_f) %></h1>
           </div>
           <div class="both-details-box">
             <div class="details-box">
-              <p>R$ 0,00</p>
+              <p>R$ <%= @user.fetch_total_income %></p>
               <p>Income</p>
             </div>
             <div class="details-box">
-              <p>R$ 0,00</p>
+              <p>R$ <%= @user.fetch_total_expense %></p>
               <p>Expenses</p>
             </div>
           </div>
