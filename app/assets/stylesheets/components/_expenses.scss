@@ -37,7 +37,7 @@
 
   .time-selection {
 
-    flex-grow: 0.65;
+    flex-grow: 0.55;
 
     .button-time {
       border-radius: 15px 15px 15px 15px;
@@ -70,11 +70,24 @@
   .income-expense {
       padding: 10px 0px;
       flex-grow: 0.47;
+      display: flex;
 
-      a{
-          color: $money;
+
+      form{
+          align-items: center;
           padding: 20px;
-          text-decoration: none;
+
+          input{
+            background-color: white;
+            border-radius: 50%;
+            border: none;
+            &:hover{
+              filter: brightness(50%);
+
+              font-weight: bold;
+            }
+          }
+
       }
     }
 
