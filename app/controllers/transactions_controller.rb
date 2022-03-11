@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
   end
 
   def edit
-  @transaction = Transaction.find(params[:id])
+    @transaction = Transaction.find(params[:id])
   end
 
   private
