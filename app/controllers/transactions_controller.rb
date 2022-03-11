@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
   end
 
   def index
-    if (params[:query].present? && (params[:query] == "all") || !params[:query].present?
+    if (params[:query].present? && params[:query] == "all") || !params[:query].present?
       @transactions = Transaction.all
     else
       @transactions = Transaction.where("type_transaction LIKE ?", params[:query].to_s)
