@@ -1,0 +1,44 @@
+
+<div class="row justify-content-center">
+  <div class="container-expenses">
+      <div class ="navbar-expenses">
+        <div class="add-expense">
+          Lançamentos
+          <button>
+            +
+          </button>
+        </div>
+        <div class="time-selection">
+          <button class="button-chevron" > < </button>
+          <button class="button-time"> Mês </button>
+          <button class="button-chevron"> > </button>
+        </div>
+      </div>
+      <div class="table-expenses">
+          <div>Filtrar por...</div>
+          <div class = "income-expense">
+            <a href="#">receitas</a>
+            <a href="#">despesas</a>
+          </div>
+      </div>
+
+
+       <% @transactions.each do |transaction| %>
+       <div class="expense-card">
+          <%= transaction.category%>
+          <%= transaction.type_transaction =="expense" ? transaction.value * -1 : transaction.value%>
+          <%= transaction.tag %>
+          <%= transaction.date %>
+       </div>
+       <% end %>
+
+
+      <div class="footer-expenses">
+        <div>Meu saldo</div>
+        <div>
+          <%= extract_values(@transactions).reduce(:+) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

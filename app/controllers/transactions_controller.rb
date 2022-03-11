@@ -1,7 +1,10 @@
 class TransactionsController < ApplicationController
-
   def new
     @transaction = Transaction.new
+  end
+
+  def index
+    @transactions = Transaction.all
   end
 
   def create
@@ -19,5 +22,4 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:type_transaction, :date, :value, :category, :tag)
   end
-
 end
