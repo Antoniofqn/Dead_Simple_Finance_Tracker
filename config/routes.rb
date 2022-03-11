@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do
-    resources :transactions, only: %i[index]
+    resources :transactions, only: %i[index new create show]
   end
 end

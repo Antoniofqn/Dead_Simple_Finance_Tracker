@@ -36,7 +36,7 @@
       <div class="footer-expenses">
         <div>Meu saldo</div>
         <div>
-          <%= @transactions.pluck(:type_transaction == "expense" ? :value * -1 : :value ).reduce(:+) %>
+          <%= extract_values(@transactions).reduce(:+) %>
         </div>
       </div>
     </div>
