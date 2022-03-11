@@ -17,6 +17,10 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def edit
+  @transaction = Transaction.find(params[:id])
+  end
+
   private
 
   def transaction_params
