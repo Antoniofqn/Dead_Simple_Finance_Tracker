@@ -1,0 +1,8 @@
+<%= simple_form_for([current_user, transaction]) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :value, label: "Amount" %>
+  <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "Expense"} %>
+  <%= f.input :category, collection: ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure"] %>
+  <%= f.input :tag %>
+  <%= f.button :submit, "Create Expense", class: "btn btn-primary" %>
+<% end %>

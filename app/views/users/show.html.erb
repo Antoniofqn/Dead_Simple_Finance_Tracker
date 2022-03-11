@@ -28,16 +28,16 @@
         <h1 style="text-align:center;">Quick Actions</h1>
       </div>
       <div class="container quick-action-buttons">
-        <div class="card-quick">
-          <h1><%= link_to "+", new_user_transaction_path(current_user) %></h1>
+        <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-income">
+          <h1>+</h1>
           <p>Add Income</p>
         </div>
-        <div class="card-quick">
+        <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-expense">
           <h1>-</h1>
           <p>Add Expense</p>
         </div>
         <div class="card-quick">
-          <h1>Stats</h1>
+          <h2>Stats</h2>
         </div>
       </div>
     </div>
@@ -52,16 +52,20 @@
   </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="form-income" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="padding:50px">
       <%= render "form_income", transaction: @transaction %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="form-expense" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px">
+      <%= render "form_expense", transaction: @transaction %>
     </div>
   </div>
 </div>
