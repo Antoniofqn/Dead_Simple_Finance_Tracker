@@ -1,24 +1,25 @@
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mb-5">
   <div class="container-expenses">
       <div class ="navbar-expenses">
         <div class="add-expense">
-          Lançamentos
+          Launch
           <button>
             +
           </button>
         </div>
         <div class="time-selection">
           <button class="button-chevron" > < </button>
-          <button class="button-time"> Mês </button>
+          <button class="button-time"> Month </button>
           <button class="button-chevron"> > </button>
         </div>
       </div>
       <div class="table-expenses">
-          <div>Filtrar por...</div>
+          <div>Filter by...</div>
           <div class = "income-expense">
-            <a href="#">receitas</a>
-            <a href="#">despesas</a>
+            <%= button_to "income", user_transactions_path, method: :get, params: {query: "income"} %>
+            <%= button_to "expenses", user_transactions_path, method: :get, params: {query: "expense"} %>
+            <%= button_to "all", user_transactions_path, method: :get, params: {query: "all"} %>
           </div>
       </div>
 
@@ -34,7 +35,7 @@
 
 
       <div class="footer-expenses">
-        <div>Meu saldo</div>
+        <div>My balance</div>
         <div>
           <%= extract_values(@transactions).reduce(:+) %>
         </div>

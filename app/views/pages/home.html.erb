@@ -4,10 +4,10 @@
       <div class="col-12 col-md-6 col-lg-3">
         <h1>Welcome to Dead Simple Finance</h1>
         <h3>Track your finance with our simple app</h3>
-        <form id="register" class="row">
-          <input type="email" name="email" placeholder="Enter your e-mail" class="form-control" required>
-          <input type="submit" name="Sign in now!" class="btn btn-primary" placeholder="Sign in now!">
-        </form>
+        <%= form_tag new_user_registration_path, method: :get, class: "row" do %>
+          <%= text_field_tag "email", nil, placeholder: "Please enter your e-mail", class: "form-control" %>
+          <%= submit_tag "Sign in now!", class: "btn btn-primary" %>
+        <% end %>
       </div>
       <div class="col-12 col-md-6 col-lg-6">
         <img src="https://liferay-cdn.estacioprd.net/documents/316123/357473/Secretariado-Executivo.png/35ea5d8b-08d0-7d39-ad7b-4d80816797e7?t=1595639362236" alt="">
