@@ -1,8 +1,8 @@
 <%= simple_form_for([current_user, transaction]) do |f| %>
   <%= f.input :date %>
-  <%= f.input :value %>
-  <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "income"} %>
+  <%= f.input :value, label: "Amount" %>
+  <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "Income"} %>
   <%= f.input :category, collection: ["Salary", "Dividends", "Others"] %>
   <%= f.input :tag %>
-  <%= f.submit %>
+  <%= f.button :submit, "Create Income", class: "btn btn-primary" %>
 <% end %>
