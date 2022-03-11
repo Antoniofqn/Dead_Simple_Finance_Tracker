@@ -9,12 +9,17 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-    @transaction.save
+    @transaction.user = current_user
+    if @transaction.save
+      redirect_to user_path(current_user)
+    else
+      render "new"
+    end
   end
 
   private
 
-  def computer_params
+  def transaction_params
     params.require(:transaction).permit(:type_transaction, :date, :value, :category, :tag)
   end
 end
