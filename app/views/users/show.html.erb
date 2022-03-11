@@ -29,7 +29,7 @@
       </div>
       <div class="container quick-action-buttons">
         <div class="card-quick">
-          <h1><%= link_to "+", new_transaction_path(:transaction => { :type_transaction => "income", :user_id => "id" }) %></h1>
+          <h1><%= link_to "+", new_user_transaction_path(current_user) %></h1>
           <p>Add Income</p>
         </div>
         <div class="card-quick">

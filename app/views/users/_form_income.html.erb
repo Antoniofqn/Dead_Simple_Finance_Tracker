@@ -1,4 +1,4 @@
-<%= simple_form_for(transaction) do |f| %>
+<%= simple_form_for([current_user, transaction]) do |f| %>
   <%= f.input :date %>
   <%= f.input :value %>
   <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "income"} %>
