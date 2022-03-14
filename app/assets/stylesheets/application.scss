@@ -11,3 +11,9 @@
 @import "components/index";
 @import "components/expenses";
 @import "pages/index";
+
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  }
