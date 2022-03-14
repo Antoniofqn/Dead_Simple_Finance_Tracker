@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :transactions
+  has_one_attached :photo
 
   def fetch_total_income
     income = 0
