@@ -15,8 +15,4 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
-<<<<<<< HEAD
-//= require bootstrap-modal
-=======
 import "chartkick/chart.js"
->>>>>>> 8663ba384a8204146d388289a4e7ccb8fcf2716b
