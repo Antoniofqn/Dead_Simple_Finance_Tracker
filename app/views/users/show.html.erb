@@ -49,6 +49,7 @@
     </div>
     <div class="card" style= "border-radius: 15px;">
       <h1>CATEGORIES VISUALIZATION</h1>
+      <%= pie_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).sum(:value) %>
     </div>
   </div>
 </div>
