@@ -15,7 +15,7 @@
             <%= link_to "Home", user_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag @user.photo.key, :width=>100, :gravity=>"faces", crop: :thumb, radius: "max", :aspect_ratio=>"1.0", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Expenses", user_transactions_path(current_user), class: "dropdown-item" %>
               <%= link_to "Stats", "#", class: "dropdown-item" %>
