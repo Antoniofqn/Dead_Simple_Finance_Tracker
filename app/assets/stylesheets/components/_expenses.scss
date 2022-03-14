@@ -24,14 +24,15 @@
 
 
   .add-expense {
-      @extend %brightness-action;
-      button {
+    button {
+        @extend %brightness-action;
         width: 35px;
         height: 35px;
         border-radius: 100%;
         background-color: $red;
         border: none;
         font-size: x-large;
+        align-items: center;
       }
   }
 
@@ -79,11 +80,8 @@
 
           input{
             background-color: white;
-            border-radius: 50%;
             border: none;
             &:hover{
-              filter: brightness(50%);
-
               font-weight: bold;
             }
           }
@@ -95,10 +93,13 @@
 
 .expense-card {
   display: flex;
-  padding:20px;
+  padding:20px 0;
   background-color: white;
   justify-content: space-around;
   align-items: center;
+  div{
+    margin-right: 20px;
+  }
   &:hover{
     background-color: $money;
   }
