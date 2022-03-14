@@ -1,0 +1,13 @@
+<div class="modal fade" id="<%=locals[:elem]%>Modal" tabindex="-1" aria-labelledby="<%=locals[:elem]%>ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="<%=locals[:elem]%>ModalLabel">New <%=locals[:elem]%></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render "/users/form_#{locals[:elem]}", transaction: @transaction %>
+      </div>
+    </div>
+  </div>
+</div>

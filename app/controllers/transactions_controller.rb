@@ -1,9 +1,14 @@
 class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def index
+    @transaction = Transaction.new
     if (params[:query].present? && params[:query] == "all") || !params[:query].present?
       @transactions = Transaction.all
     else
@@ -15,7 +20,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @transaction.user = current_user
     if @transaction.save
-      redirect_to user_path(current_user)
+      redirect_to user_transactions_path
     else
       render "new"
     end
@@ -23,6 +28,12 @@ class TransactionsController < ApplicationController
 
   def edit
     @transaction = Transaction.find(params[:id])
+  end
+
+  def destroy
+    @transaction = Transaction.find(params[:id])
+    @transaction.destroy
+    redirect_to user_transactions_path(current_user)
   end
 
   private
