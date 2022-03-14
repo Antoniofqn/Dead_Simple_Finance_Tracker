@@ -68,3 +68,9 @@ gem 'pundit'
 
 # data visualization
 gem 'chartkick'
+
+#protection
+gem 'dotenv-rails', groups: [:development, :test]
+
+#image hosting
+gem 'cloudinary', '~> 1.16.0'
