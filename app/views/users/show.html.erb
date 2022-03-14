@@ -4,7 +4,7 @@
       <div class="row g-0">
         <div class="col-md-4 avatar-box">
           <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
-          <%= cl_image_tag @user.photo.key %>
+          <%= cl_image_tag @user.photo.key, :width=>100, :gravity=>"faces", crop: :thumb, radius: "max", :aspect_ratio=>"1.0" %>
         </div>
         <div class="col-md-8 info-box">
           <div class="saldo-box">
