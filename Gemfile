@@ -66,4 +66,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # For authorization paramters
 gem 'pundit'
 
-gem 'popper_js', '~> 2.9.3'
+# data visualization
+gem 'chartkick'

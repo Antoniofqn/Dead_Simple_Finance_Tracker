@@ -2,7 +2,7 @@
   <%= f.input :date %>
   <%= f.input :value, label: "Amount" %>
   <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "Income"} %>
-  <%= f.input :category, collection: ["Salary", "Dividends", "Others"] %>
+  <%= f.input :category, collection: Transaction::INCOME_CATEGORIES %>
   <%= f.input :tag %>
   <%= f.button :submit, "Create Income", class: "btn btn-primary" %>
 <% end %>
