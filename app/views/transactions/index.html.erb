@@ -3,10 +3,20 @@
   <div class="container-expenses">
       <div class ="navbar-expenses">
         <div class="add-expense">
-          Launch
-          <button>
-            +
-          </button>
+          New
+          <%= button_tag "+",  class: "dropdown",
+              id: "expenseDropdown", data: { bs_toggle: "dropdown" },
+              'aria-haspopup': true,'aria-expanded': false
+          %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
+            <%# <div class="" data-bs-toggle="modal" data-bs-target="#incomeModal">
+                income
+            </div>
+            <%= render "new" %>
+            <%# <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                income
+            </div> %>
+          </div>
         </div>
         <div class="time-selection">
           <button class="button-chevron" > < </button>
@@ -26,10 +36,10 @@
 
        <% @transactions.each do |transaction| %>
        <div class="expense-card">
-          <%= transaction.category%>
-          <%= transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value%>
-          <%= transaction.tag %>
-          <%= transaction.date %>
+            <%= content_tag(:div, transaction.category)%>
+            <%= content_tag(:div, transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value)%>
+            <%= content_tag(:div, link_to("edit", edit_user_transaction_path(current_user, transaction)))%>
+            <%= content_tag(:div, link_to("delete", [current_user, transaction], method: :delete)) %>
        </div>
        <% end %>
 
@@ -43,3 +53,15 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#incomeModal">
+                income
+            </div>
+<%= render "new", locals: {elem: "income"} %>
+
+<div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                expense
+            </div>
+<%= render "new", locals: {elem: "expense"} %>
