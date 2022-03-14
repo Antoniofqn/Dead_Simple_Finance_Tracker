@@ -27,4 +27,8 @@ class User < ApplicationRecord
     end
     format("%.2f", expense)
   end
+
+  def expense_transactions
+    User.select('value').from('transactions').where('type_transaction' == "Expense")
+  end
 end
