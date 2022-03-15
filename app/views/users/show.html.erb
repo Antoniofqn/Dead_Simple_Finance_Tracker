@@ -4,7 +4,7 @@
       <div class="row g-0">
         <div class="col-md-4 avatar-box">
           <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar-xxxlarge" alt="...">
+          <%= user_has_photo?(current_user) %>
         </div>
         <div class="col-md-8 info-box">
           <div class="saldo-box">
