@@ -1,2 +1,2 @@
-$(#myEditModal).insertAdjacentHTML("afterend","<%= j render partial: "transactions/edit", collection: @transactions, as: :transaction %>");
-$("#myEditModal").modal('show');
+$("#editModal .modal-content").html('<%= j render "edit", transaction: @transaction %>');
+$("#editModal").modal('show');

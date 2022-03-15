@@ -1,0 +1,7 @@
+<% if @transaction.errors.any? %>
+  $("#editModal .modal-content").html('<%= j render "edit", transaction: @transaction %>');
+<% else %>
+  $("#editModal").modal('hide');
+  $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).replaceWith('<%= j render "transactions/transaction", transaction: @transaction %>')
+  $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).addClass('edited');
+<% end %>
