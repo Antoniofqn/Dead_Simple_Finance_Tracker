@@ -22,7 +22,7 @@
     <% end %>
     <h2>Month</h2>
     <% if params.has_key?(:search) %>
-      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_year(:date).sum(:value) %>
+      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_month(:date).sum(:value) %>
     <% else %>
       <%= line_chart @user.transactions.group_by_month(:date).sum(:value) %>
     <% end %>
