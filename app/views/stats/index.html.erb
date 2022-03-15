@@ -1,20 +1,29 @@
-<h1>Here are your stats</h1>
-
-<h1>Welcome <%= @user.first_name %>!</h1>
-
-<%= simple_form_for :search, url: stats_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :category, :collection => Transaction::EXPENSE_CATEGORIES %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
+<h1>Stats</h1>
 
 <div class="container">
-  <% if params.has_key?(:search) %>
-    <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_day(:date).sum(:value) %>
-  <% else %>
-    <%= line_chart @user.transactions.group_by_day(:date).sum(:value) %>
+  <%= simple_form_for :search, url: stats_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+    <%= f.input :category, :collection => Transaction::EXPENSE_CATEGORIES %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
   <% end %>
-  <%= line_chart @user.transactions.group_by_week(:date).sum(:value) %>
-  <%= line_chart @user.transactions.group_by_month(:date).sum(:value) %>
 </div>
 
-# line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_day(:date).sum(:value)
+<div class="container">
+  <h2>Day</h2>
+    <% if params.has_key?(:search) %>
+      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_day(:date).sum(:value) %>
+    <% else %>
+      <%= line_chart @user.transactions.group_by_day(:date).sum(:value) %>
+    <% end %>
+    <h1>Week</h1>
+    <% if params.has_key?(:search) %>
+      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_week(:date).sum(:value) %>
+    <% else %>
+      <%= line_chart @user.transactions.group_by_week(:date).sum(:value) %>
+    <% end %>
+    <h2>Month</h2>
+    <% if params.has_key?(:search) %>
+      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_year(:date).sum(:value) %>
+    <% else %>
+      <%= line_chart @user.transactions.group_by_month(:date).sum(:value) %>
+    <% end %>
+</div>
