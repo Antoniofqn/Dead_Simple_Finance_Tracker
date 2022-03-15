@@ -97,11 +97,14 @@
   background-color: white;
   justify-content: space-around;
   align-items: center;
+  transition: 0.3s all ease-in-out;
+  border-top: 1px solid;
   div{
     margin-right: 20px;
   }
   &:hover{
-    background-color: $money;
+    box-shadow: 0 0 15px rgb(179, 178, 178);
+    transform: scale(1.05);
   }
 }
 
