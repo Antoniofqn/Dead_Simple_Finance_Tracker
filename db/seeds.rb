@@ -13,9 +13,11 @@ category_income = ["Salary", "Dividends", "Bonus", "Tax Refund", "Gift", "Other"
 
 
 
+
 50.times do
   puts "creating now"
-  transaction = Transaction.new(type_transaction: type.sample, date: Date.new(2022, [02, 03].sample, (1..10).to_a.sample), value: value.sample, user_id: 1)
+  date = ((Date.today - 40)..Date.today).to_a.sample
+  transaction = Transaction.new(type_transaction: type.sample, date: date, value: value.sample, user_id: 1)
   if transaction.type_transaction == "Expense"
     transaction.category = category_expense.sample
   else
@@ -23,5 +25,6 @@ category_income = ["Salary", "Dividends", "Bonus", "Tax Refund", "Gift", "Other"
   end
   if transaction.save
     puts "saved!"
+    p transaction
   end
 end
