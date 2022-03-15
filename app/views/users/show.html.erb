@@ -38,7 +38,7 @@
           <p>Add Expense</p>
         </div>
         <div class="card-quick">
-          <h2><%= link_to "Stats", stats_path %></h2>
+          <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
   <div class="container flex-direction-row-center justify-content-between mb-4 pb-3">
      <div class="card" style= "border-radius: 15px;">
       <h1>BALANCE VISUALIZATION</h1>
-      <%= column_chart @user.transactions.group(:type_transaction).sum(:value), colors: ["#b00", "#109618",], prefix: "R$ " %>
+      <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
     </div>
     <div class="card" style= "border-radius: 15px;">
       <h1>CATEGORIES VISUALIZATION</h1>
