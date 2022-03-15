@@ -32,8 +32,7 @@
        <div class="expense-card">
             <%= content_tag(:div, transaction.category)%>
             <%= content_tag(:div, transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value)%>
-            <%= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id: "myEditModal", remote: true %>
-
+            <%= content_tag(:div, link_to("edit", edit_user_transaction_path(current_user, transaction)))%>
             <%= content_tag(:div, link_to("delete", [current_user, transaction], method: :delete)) %>
        </div>
        <% end %>
@@ -65,14 +64,10 @@
 <%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>
 
 
-<div data-bs-toggle="modal" data-bs-target="#editModal" remote = true id= "myEditModal" >
+<%# <div data-bs-toggle="modal" data-bs-target="#editModal" remote = true id= "myEditModal" >
               edit
-</div>
+</div> %>
             <%#= render "edit", transaction: transaction %>
 
 
-
-
-
-
-<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>
+<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id:"myeditModal", remote: true %>

@@ -24,9 +24,9 @@ class TransactionsController < ApplicationController
 
   def edit
     @transaction = Transaction.find(params[:id])
-    respond_to do |format|
-      format.js
-    end
+    # respond_to do |format|
+    #   format.js
+    # end
   end
 
   def update
@@ -34,7 +34,7 @@ class TransactionsController < ApplicationController
     if @transaction.update(transaction_params)
       redirect_to user_transactions_path
     else
-      render partial: "edit", transaction: @transaction
+      render "edit"
     end
   end
 

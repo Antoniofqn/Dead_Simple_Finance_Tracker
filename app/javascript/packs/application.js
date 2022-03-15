@@ -17,4 +17,4 @@ import "bootstrap"
 
 import "chartkick/chart.js"
 
-window.$ = $;
+require('jquery')

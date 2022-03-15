@@ -1,5 +1,2 @@
-document.querySelector("#myEditModal").insertAdjacentHTML(
-  "afterend",
-  "<%= escape_javascript(render partial: 'edit', collection: @transactions, as: :transaction) %>"
-);
-document.querySelector("#myEditModal").modal('show');
+$(#myEditModal).insertAdjacentHTML("afterend","<%= j render partial: "transactions/edit", collection: @transactions, as: :transaction %>");
+$("#myEditModal").modal('show');
