@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 type = ["Income", "Expense"]
-date = Date.new(2022, 03, [1,2,3].sample)
 value = (50..100).to_a
 category_expense = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure"]
 category_income = ["Salary", "Dividends", "Bonus", "Tax Refund", "Gift", "Other"]
@@ -16,7 +15,7 @@ category_income = ["Salary", "Dividends", "Bonus", "Tax Refund", "Gift", "Other"
 
 10.times do
   puts "creating now"
-  transaction = Transaction.new(type_transaction: type.sample, date: date, value: value.sample, user_id: 1)
+  transaction = Transaction.new(type_transaction: type.sample, date: Date.new(2022, 03, (1..10).to_a.sample), value: value.sample, user_id: 1)
   if transaction.type_transaction == "Expense"
     transaction.category = category_expense.sample
   else

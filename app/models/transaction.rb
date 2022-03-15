@@ -5,4 +5,5 @@ class Transaction < ApplicationRecord
 
   EXPENSE_CATEGORIES = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure"]
   INCOME_CATEGORIES = ["Salary", "Dividends", "Others"]
+  ALL_CATEGORIES = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure", "Salary", "Dividends", "Others"]
 end
