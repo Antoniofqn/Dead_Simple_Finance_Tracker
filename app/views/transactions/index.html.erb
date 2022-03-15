@@ -30,8 +30,9 @@
       </div>
 
 
-       <% @transactions.each do |transaction| %>
+       <% @transactions.order(date: :desc).each do |transaction| %>
        <div class="expense-card">
+            <%= content_tag(:div, transaction.date)%>
             <%= content_tag(:div, transaction.category)%>
             <%= content_tag(:div, transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value)%>
             <%= content_tag(:div, link_to("edit", edit_user_transaction_path(current_user, transaction)))%>
