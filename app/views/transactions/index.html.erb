@@ -4,27 +4,15 @@
       <div class ="navbar-expenses">
         <div class="add-expense">
           New
-          <%= button_tag "+",  class: "dropdown",
-              id: "expenseDropdown", data: { bs_toggle: "dropdown" },
-              'aria-haspopup': true,'aria-expanded': false
-          %>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
-
-          <ul class="dropdown-menu">
-    <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-    <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
-    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-  </ul>
-</div>
-            <%# <div class="" data-bs-toggle="modal" data-bs-target="#incomeModal">
+            <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#incomeModal">
                 income
             </div>
-            <%= render "new" %>
-            <%# <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                income
-            </div> %>
+            <%= render "new", locals: {elem: "income"} %>
 
-          </div>
+            <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#expenseModal">
+                expense
+            </div>
+            <%= render "new", locals: {elem: "expense"} %>
         </div>
         <div class="time-selection">
           <button class="button-chevron" > < </button>
@@ -64,15 +52,7 @@
 
 
 
-<div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#incomeModal">
-                income
-            </div>
-<%= render "new", locals: {elem: "income"} %>
 
-<div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#expenseModal">
-                expense
-            </div>
-<%= render "new", locals: {elem: "expense"} %>
 
 
 <%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>
@@ -85,3 +65,14 @@
 
 
 <%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id:"myeditModal", remote: true %>
+
+
+
+ <%# <%= button_tag "+",  class: "dropdown",
+              id: "expenseDropdown", data: { bs_toggle: "dropdown" },
+              'aria-haspopup': true,'aria-expanded': false
+          %>
+<%#         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
+
+
+          </div> %>
