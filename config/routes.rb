@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :transactions, only: %i[index new create show edit update destroy]
   end
+
+  resources :stats, only: %i[index]
 end

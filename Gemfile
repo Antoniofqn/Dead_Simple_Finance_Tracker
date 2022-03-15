@@ -67,6 +67,7 @@ gem 'pundit'
 
 # data visualization
 gem 'chartkick'
+gem "groupdate"
 
 #protection
 gem 'dotenv-rails', groups: [:development, :test]
