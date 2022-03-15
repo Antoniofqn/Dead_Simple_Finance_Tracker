@@ -9,13 +9,7 @@
               'aria-haspopup': true,'aria-expanded': false
           %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
-            <%# <div class="" data-bs-toggle="modal" data-bs-target="#incomeModal">
-                income
-            </div>
-            <%= render "new" %>
-            <%# <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                income
-            </div> %>
+
           </div>
         </div>
         <div class="time-selection">
@@ -38,7 +32,8 @@
        <div class="expense-card">
             <%= content_tag(:div, transaction.category)%>
             <%= content_tag(:div, transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value)%>
-            <%= content_tag(:div, link_to("edit", edit_user_transaction_path(current_user, transaction)))%>
+            <%= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id: "myEditModal", remote: true %>
+
             <%= content_tag(:div, link_to("delete", [current_user, transaction], method: :delete)) %>
        </div>
        <% end %>
@@ -65,3 +60,19 @@
                 expense
             </div>
 <%= render "new", locals: {elem: "expense"} %>
+
+
+<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>
+
+
+<div data-bs-toggle="modal" data-bs-target="#editModal" remote = true id= "myEditModal" >
+              edit
+</div>
+            <%#= render "edit", transaction: transaction %>
+
+
+
+
+
+
+<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>

@@ -1,10 +1,6 @@
 class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
   end
 
   def index
@@ -22,12 +18,24 @@ class TransactionsController < ApplicationController
     if @transaction.save
       redirect_to user_transactions_path
     else
-      render "new"
+      render partial: "new"
     end
   end
 
   def edit
     @transaction = Transaction.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    @transaction = Transaction.find(params[:id])
+    if @transaction.update(transaction_params)
+      redirect_to user_transactions_path
+    else
+      render partial: "edit", transaction: @transaction
+    end
   end
 
   def destroy
