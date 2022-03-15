@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :users do
-    resources :transactions, only: %i[index new create show edit destroy]
+    resources :transactions, only: %i[index new create show edit update destroy]
   end
 
   resources :stats, only: %i[index]

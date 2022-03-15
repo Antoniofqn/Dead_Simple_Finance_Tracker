@@ -9,6 +9,7 @@
               'aria-haspopup': true,'aria-expanded': false
           %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
+
           <ul class="dropdown-menu">
     <li><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
     <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
@@ -22,6 +23,7 @@
             <%# <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 income
             </div> %>
+
           </div>
         </div>
         <div class="time-selection">
@@ -71,3 +73,15 @@
                 expense
             </div>
 <%= render "new", locals: {elem: "expense"} %>
+
+
+<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>
+
+
+<%# <div data-bs-toggle="modal" data-bs-target="#editModal" remote = true id= "myEditModal" >
+              edit
+</div> %>
+            <%#= render "edit", transaction: transaction %>
+
+
+<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id:"myeditModal", remote: true %>

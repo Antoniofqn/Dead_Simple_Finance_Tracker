@@ -1,1 +1,17 @@
+
+<%= simple_form_for([current_user, @transaction]) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :value, label: "Amount" %>
+  <%= f.input :type_transaction, :input_html => { :value => "Income"} %>
+  <%=
+            if @transaction.type_transaction == "Income"
+              f.input :category, collection: Transaction::INCOME_CATEGORIES
+            else
+              f.input :category, collection: Transaction::EXPENSE_CATEGORIES
+            end
+            %>
+  <%= f.input :tag %>
+  <%= f.button :submit, "Create Income", class: "btn btn-primary" %>
+<% end %>
+
 <i class="fa fa-plane"></i>
