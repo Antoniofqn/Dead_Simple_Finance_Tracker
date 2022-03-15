@@ -6,9 +6,9 @@ class TransactionsController < ApplicationController
   def index
     @transaction = Transaction.new
     if (params[:query].present? && params[:query] == "all") || !params[:query].present?
-      @transactions = Transaction.all
+      @transactions = current_user.transactions
     else
-      @transactions = Transaction.where("type_transaction LIKE ?", params[:query].to_s)
+      @transactions = current_user.transactions.where("type_transaction LIKE ?", params[:query].to_s)
     end
   end
 
