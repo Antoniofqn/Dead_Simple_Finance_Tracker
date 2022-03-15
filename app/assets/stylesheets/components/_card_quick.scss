@@ -8,8 +8,11 @@
   margin: 3px;
   padding: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: 0.3s all ease-in-out;
 }
 
 .card-quick:hover {
   cursor: pointer;
+  box-shadow: 0 0 15px rgb(179, 178, 178);
+  transform: scale(1.1);
 }
