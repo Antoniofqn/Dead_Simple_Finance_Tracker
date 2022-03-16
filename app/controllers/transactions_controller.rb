@@ -24,14 +24,13 @@ class TransactionsController < ApplicationController
 
   def edit
     @transaction = Transaction.find(params[:id])
-    respond_to do |format|
-      format.js
-    end
   end
 
   def update
     @transaction = Transaction.find(params[:id])
-    @transaction.update(transaction_params)
+    @transaction.assign_attributes(transaction_params)
+    @changed = @transaction.changed?
+    @transaction.save
   end
 
   def destroy

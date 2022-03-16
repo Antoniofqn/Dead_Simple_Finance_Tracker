@@ -3,5 +3,8 @@
 <% else %>
   $("#editModal").modal('hide');
   $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).replaceWith('<%= j render "transactions/transaction", transaction: @transaction %>')
-  $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).addClass('edited');
+
+  <% if @changed %>
+    $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).addClass('edited');
+  <% end %>
 <% end %>
