@@ -7,9 +7,9 @@ class User < ApplicationRecord
   has_many :transactions
   has_one_attached :photo
 
-  def fetch_total_income
+  def fetch_monthly_income
     income = 0
-    transactions = self.transactions
+    transactions = self.transactions.where(transactions: { date: Time.now.beginning_of_month..Time.now.end_of_month })
     transactions.each do |transaction|
       if transaction.type_transaction == "Income"
         income += transaction.value
@@ -18,9 +18,9 @@ class User < ApplicationRecord
     format("%.2f", income)
   end
 
-  def fetch_total_expense
+  def fetch_monthly_expense
     expense = 0
-    transactions = self.transactions
+    transactions = self.transactions.where(transactions: { date: Time.now.beginning_of_month..Time.now.end_of_month })
     transactions.each do |transaction|
       if transaction.type_transaction == "Expense"
         expense += transaction.value

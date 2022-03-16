@@ -16,17 +16,17 @@
           </div>
           <div class="info-box">
             <div class="saldo-box">
-              <h2>Balance: <br>
-              R$ <%= format("%.2f", @user.fetch_total_income.to_f - @user.fetch_total_expense.to_f) %></h1>
+              <h3>Monthly Balance: <br>
+              R$ <%= format("%.2f", @user.fetch_monthly_income.to_f - @user.fetch_monthly_expense.to_f) %></h1>
             </div>
             <div class="both-details-box">
               <div class="details-box" style="margin-right: 5px;">
-                <p style="color: green;">R$ <%= @user.fetch_total_income %></p>
-                <p>Income</p>
+                <p style="color: green;">R$ <%= @user.fetch_monthly_income %></p>
+                <p>Monthly Income</p>
               </div>
               <div class="details-box">
-                <p style="color: red;">R$ <%= @user.fetch_total_expense %></p>
-                <p>Expenses</p>
+                <p style="color: red;">R$ <%= @user.fetch_monthly_expense %></p>
+                <p>Monthly Expenses</p>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
       <% if params.has_key?(:balance)%>
         <%= column_chart @user.transactions.where(transactions: {date: Date.new(params[:balance]["date(1i)"].to_i, params[:balance]["date(2i)"].to_i, 1)..Date.new(params[:balance]["date(1i)"].to_i, params[:balance]["date(2i)"].to_i).end_of_month}).group(:type_transaction).sum(:value), prefix: "R$ " %>
       <% else %>
-        <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
+        <%= column_chart @user.transactions.where(transactions: { date: Time.now.beginning_of_month..Time.now.end_of_month }).group(:type_transaction).sum(:value), prefix: "R$ " %>
       <% end %>
     </div>
 
