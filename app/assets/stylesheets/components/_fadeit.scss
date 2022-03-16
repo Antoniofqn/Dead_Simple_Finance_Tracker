@@ -1,17 +1,35 @@
-@-o-keyframes fadeIt {
+@-o-keyframes fadeIt-income {
   0% {background-color: #F4F4F4;}
-  50% {background-color: #3CB371;}
+  50% {background-color: #BDECB6;}
   100% {background-color: #F4F4F4;}
 }
 
-@keyframes fadeIt {
+@keyframes fadeIt-income {
   0% {background-color: #F4F4F4;}
-  50% {background-color: #3CB371;}
+  50% {background-color: #BDECB6;}
   100% {background-color: #F4F4F4;}
 }
 
-.edited{
+@-o-keyframes fadeIt-expense {
+  0% {background-color: #F4F4F4;}
+  50% {background-color: #FF6961;}
+  100% {background-color: #F4F4F4;}
+}
+
+@keyframes fadeIt-expense {
+  0% {background-color: #F4F4F4;}
+  50% {background-color: #FF6961;}
+  100% {background-color: #F4F4F4;}
+}
+
+.edited-income{
   background-image: none !important;
-  -o-animation: fadeIt 2s ease-in-out;
-  animation: fadeIt 2s ease-in-out;
+  -o-animation: fadeIt-income 2s ease-in-out;
+  animation: fadeIt-income 2s ease-in-out;
+}
+
+.edited-expense{
+  background-image: none !important;
+  -o-animation: fadeIt-expense 2s ease-in-out;
+  animation: fadeIt-expense 2s ease-in-out;
 }

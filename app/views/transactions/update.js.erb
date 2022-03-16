@@ -4,7 +4,10 @@
   $("#editModal").modal('hide');
   $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).replaceWith('<%= j render "transactions/transaction", transaction: @transaction %>')
 
-  <% if @changed %>
-    $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).addClass('edited');
+  <% if @changed && @transaction.type_transaction == "Income"%>
+    $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).addClass('edited-income');
+  <% end %>
+  <% if @changed && @transaction.type_transaction == "Expense"%>
+    $('div[data-user-id="' + <%= @transaction.id %> + '"]' ).addClass('edited-expense');
   <% end %>
 <% end %>
