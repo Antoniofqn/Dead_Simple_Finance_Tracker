@@ -1,29 +1,10 @@
 <h1>Stats</h1>
 
 <div class="container">
-  <%= simple_form_for :search, url: stats_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-    <%= f.input :category, :collection => Transaction::EXPENSE_CATEGORIES, as: :radio_buttons, wrapper: :vertical_collection_inline %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<div class="container">
-  <h2>Day</h2>
-    <% if params.has_key?(:search) %>
-      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_day(:date).sum(:value) %>
-    <% else %>
-      <%= line_chart @user.transactions.group_by_day(:date).sum(:value) %>
-    <% end %>
-    <h1>Week</h1>
-    <% if params.has_key?(:search) %>
-      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_week(:date).sum(:value) %>
-    <% else %>
-      <%= line_chart @user.transactions.group_by_week(:date).sum(:value) %>
-    <% end %>
-    <h2>Month</h2>
-    <% if params.has_key?(:search) %>
-      <%= line_chart @user.transactions.where(transactions: {category: params[:search][:category]}).group_by_month(:date).sum(:value) %>
-    <% else %>
-      <%= line_chart @user.transactions.group_by_month(:date).sum(:value) %>
-    <% end %>
+  <h2>Last 31 days</h2>
+  <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_day(:date).sum(:value), xmin: (Date.today - 31), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
+  <h2>Last 12 weeks</h2>
+  <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_week(:date).sum(:value), xmin: (Date.today - 93), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
+  <h2>Last Year</h2>
+  <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_month(:date).sum(:value), xmin: (Date.today - 365), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
 </div>
