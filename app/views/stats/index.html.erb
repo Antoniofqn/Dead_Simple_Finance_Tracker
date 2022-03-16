@@ -1,10 +1,17 @@
-<h1>Stats</h1>
-
 <div class="container">
-  <h2>Last 31 days</h2>
-  <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_day(:date).sum(:value), xmin: (Date.today - 31), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
-  <h2>Last 12 weeks</h2>
-  <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_week(:date).sum(:value), xmin: (Date.today - 93), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
-  <h2>Last Year</h2>
-  <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_month(:date).sum(:value), xmin: (Date.today - 365), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
+  <h1>Stats</h1>
+  <div class="mb-4 p-2" style="border-radius: 20px; box-shadow: 10px 1px 10px 10px rgba(0,0,0,.09);">
+    <h2>Last 31 days</h2>
+    <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_day(:date).sum(:value), xmin: (Date.today - 31), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
+  </div>
+  <div class="row justify-content-around mb-4">
+    <div class="col-md-5 col-12 col-lg-5 p-2" style="border-radius: 20px; box-shadow: 10px 1px 10px 10px rgba(0,0,0,.09);">
+      <h2>Last Year</h2>
+      <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_month(:date).sum(:value), xmin: (Date.today - 365), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
+    </div>
+    <div class="col-md-5 col-12 col-lg-5 p-2" style="border-radius: 20px; box-shadow: 10px 1px 10px 10px rgba(0,0,0,.09);">
+      <h2>Last 12 weeks</h2>
+      <%= line_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).group_by_week(:date).sum(:value), xmin: (Date.today - 93), xmax: Date.today, prefix: "R$ ", round: 2, zeros: true %>
+    </div>
+  </div>
 </div>
