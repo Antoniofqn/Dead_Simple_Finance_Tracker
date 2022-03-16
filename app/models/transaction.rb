@@ -4,6 +4,6 @@ class Transaction < ApplicationRecord
   validates :type_transaction, :date, :value, :category, presence: true
 
   EXPENSE_CATEGORIES = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure"]
-  INCOME_CATEGORIES = ["Salary", "Dividends", "Others"]
+  INCOME_CATEGORIES = ["Salary", "Dividends", "Other"]
   ALL_CATEGORIES = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure", "Salary", "Dividends", "Others"]
 end
