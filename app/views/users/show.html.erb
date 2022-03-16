@@ -55,10 +55,26 @@
   </div>
 
   <div class="container flex-direction-row-center justify-content-between mb-4 pb-3">
-     <div class="card col-md-5 p-2" style= "border-radius: 15px;">
-      <h1>Balance View</h1>
-      <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
+     <div class="card col-md-5 p-2" style= "border-radius: 15px;" id="balance-chart">
+      <h2>Monthly Balance View</h2>
+        <%= simple_form_for :balance, url: user_path(anchor: "balance-chart"), method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :date, as: :date, discard_day: true, order: [:month, :year] %>
+          <%= f.submit "Search", class: "btn btn-primary" %>
+        <% end %>
+
+      <% if params.has_key?(:balance)%>
+        <h3><%= Date::MONTHNAMES[params[:balance]["date(2i)"].to_i] %> - <%= params[:balance]["date(1i)"] %></h3>
+      <% else %>
+        <h3><%= Date::MONTHNAMES[Date.today.month] %> - <%= Date.today.year %></h3>
+      <% end %>
+
+      <% if params.has_key?(:balance)%>
+        <%= column_chart @user.transactions.where(transactions: {date: Date.new(params[:balance]["date(1i)"].to_i, params[:balance]["date(2i)"].to_i, 1)..Date.new(params[:balance]["date(1i)"].to_i, params[:balance]["date(2i)"].to_i).end_of_month}).group(:type_transaction).sum(:value), prefix: "R$ " %>
+      <% else %>
+        <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
+      <% end %>
     </div>
+
     <div class="card col-md-5 p-2" style= "border-radius: 15px;" id="pie-chart">
       <h2>Monthly Expenses per Category</h2>
         <%= simple_form_for :pie, url: user_path(anchor: "pie-chart"), method: "GET", html: { class: 'form-inline' } do |f| %>
@@ -67,9 +83,9 @@
         <% end %>
 
       <% if params.has_key?(:pie)%>
-        <h1><%= Date::MONTHNAMES[params[:pie]["date(2i)"].to_i] %></h1>
+        <h3><%= Date::MONTHNAMES[params[:pie]["date(2i)"].to_i] %> - <%= params[:pie]["date(1i)"] %></h3>
       <% else %>
-        <h1><%= Date::MONTHNAMES[Date.today.month] %></h1>
+        <h3><%= Date::MONTHNAMES[Date.today.month] %> - <%= Date.today.year %></h3>
       <% end %>
 
       <% if params.has_key?(:pie) %>
