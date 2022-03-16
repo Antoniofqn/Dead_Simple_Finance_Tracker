@@ -59,9 +59,24 @@
       <h1>Balance View</h1>
       <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
     </div>
-    <div class="card col-md-5 p-2" style= "border-radius: 15px;">
-      <h1>Categories Expenses</h1>
-      <%= pie_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).sum(:value), prefix: "R$ " %>
+    <div class="card col-md-5 p-2" style= "border-radius: 15px;" id="pie-chart">
+      <h2>Monthly Expenses per Category</h2>
+        <%= simple_form_for :pie, url: user_path(anchor: "pie-chart"), method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :date, as: :date, discard_day: true, order: [:month, :year] %>
+          <%= f.submit "Search", class: "btn btn-primary" %>
+        <% end %>
+
+      <% if params.has_key?(:pie)%>
+        <h1><%= Date::MONTHNAMES[params[:pie]["date(2i)"].to_i] %></h1>
+      <% else %>
+        <h1><%= Date::MONTHNAMES[Date.today.month] %></h1>
+      <% end %>
+
+      <% if params.has_key?(:pie) %>
+        <%= pie_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES, date: Date.new(params[:pie]["date(1i)"].to_i, params[:pie]["date(2i)"].to_i, 1)..Date.new(params[:pie]["date(1i)"].to_i, params[:pie]["date(2i)"].to_i).end_of_month}).group(:category).sum(:value), prefix: "R$ ", legend: "bottom" %>
+      <% else %>
+        <%= pie_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES, date: Time.now.beginning_of_month..Time.now.end_of_month}).group(:category).sum(:value), prefix: "R$ ", legend: "bottom" %>
+      <% end %>
     </div>
   </div>
 </div>
