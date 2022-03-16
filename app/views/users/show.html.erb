@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <div class="container flex-direction-row-center justify-content-between mb-4 pb-3">
+  <div class="container flex-direction-row-center justify-content-between mb-2 pb-3">
      <div class="card col-md-5 p-2" style= "border-radius: 15px;">
       <h1>Balance View</h1>
       <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
@@ -62,6 +62,17 @@
     <div class="card col-md-5 p-2" style= "border-radius: 15px;">
       <h1>Categories Expenses</h1>
       <%= pie_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).sum(:value), prefix: "R$ " %>
+    </div>
+  </div>
+
+  <div class="container flex-direction-row-center justify-content-between mb-2 pb-3">
+    <div class="card col-md-5" style= "border-radius: 15px;">
+      <h1>Dead Simple News</h1>
+      <div></div>
+    </div>
+    <div class="card col-md-5" style= "border-radius: 15px;">
+      <h1>Dead Simple Education</h1>
+      <div></div>
     </div>
   </div>
 </div>
