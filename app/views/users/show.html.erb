@@ -1,55 +1,66 @@
 <div class= "container col-12 mb-5 pb-5" style="margin-top: 20px">
-  <div class="container" id="main-dashboard">
-    <div class="card mb-3" style="border-radius: 10px; padding: 20px; margin: 3px 6px; max-width:100%">
-      <div class="row g-0">
-        <div class="col-md-4 avatar-box">
-          <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
-          <%= user_has_photo?(current_user) %>
-        </div>
-        <div class="col-md-8 info-box">
-          <div class="saldo-box">
-            <h2>Balance: <br>
-            R$ <%= format("%.2f", @user.fetch_total_income.to_f - @user.fetch_total_expense.to_f) %></h1>
-          </div>
-          <div class="both-details-box">
-            <div class="details-box">
-              <p>R$ <%= @user.fetch_total_income %></p>
-              <p>Income</p>
-            </div>
-            <div class="details-box">
-              <p>R$ <%= @user.fetch_total_expense %></p>
-              <p>Expenses</p>
+  <div class="container justify-content-center">
+    <div class="card mb-3" style="border-radius: 15px;">
+      <div class="d-flex justify-content-around">
+          <div class="d-flex flex-column align-items-center p-2">
+            <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
+            <%= user_has_photo?(current_user) %>
+            <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);">
+              <h4>Your Goals:</h4>
+              <div>
+                <h6>Goal</h6>
+                <h6>Goal</h6>
+                <h6>show more</h6>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-3" style="border-radius: 10px; padding:10px; margin: 3px 6px; max-width:30%; max-width:100%">
-      <div class="row g-0">
-        <h1 style="text-align:center;">Quick Actions</h1>
-      </div>
-      <div class="container quick-action-buttons">
-        <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-income">
-          <h1>+</h1>
-          <p>Add Income</p>
-        </div>
-        <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-expense">
-          <h1>-</h1>
-          <p>Add Expense</p>
-        </div>
-        <div class="card-quick">
-          <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
+          <div class="info-box">
+            <div class="saldo-box">
+              <h2>Balance: <br>
+              R$ <%= format("%.2f", @user.fetch_total_income.to_f - @user.fetch_total_expense.to_f) %></h1>
+            </div>
+            <div class="both-details-box">
+              <div class="details-box" style="margin-right: 5px;">
+                <p style="color: green;">R$ <%= @user.fetch_total_income %></p>
+                <p>Income</p>
+              </div>
+              <div class="details-box">
+                <p style="color: red;">R$ <%= @user.fetch_total_expense %></p>
+                <p>Expenses</p>
+              </div>
+            </div>
+          </div>
+        <div>
+          <div class="mb-3 p-2" style="border-radius: 10px; padding:10px; margin: 3px 6px; max-width:30%; max-width:100%">
+            <div class="row g-0">
+              <h1 style="text-align:center; opacity: 0.7;">Quick Actions</h1>
+            </div>
+            <div class="container quick-action-buttons">
+              <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-income">
+                <h1 style="color: green;">+</h1>
+                <p>Add Income</p>
+              </div>
+              <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-expense">
+                <h1 style="color: red;">-</h1>
+                <p>Add Expense</p>
+              </div>
+              <div class="card-quick">
+                <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="container flex-direction-row-center justify-content-between mb-4 pb-3">
-     <div class="card" style= "border-radius: 15px;">
-      <h1>BALANCE VISUALIZATION</h1>
+     <div class="card col-md-5 p-2" style= "border-radius: 15px;">
+      <h1>Balance View</h1>
       <%= column_chart @user.transactions.group(:type_transaction).sum(:value), prefix: "R$ " %>
     </div>
-    <div class="card" style= "border-radius: 15px;">
-      <h1>CATEGORIES VISUALIZATION</h1>
+    <div class="card col-md-5 p-2" style= "border-radius: 15px;">
+      <h1>Categories Expenses</h1>
       <%= pie_chart @user.transactions.where(transactions: {category: Transaction::EXPENSE_CATEGORIES}).group(:category).sum(:value), prefix: "R$ " %>
     </div>
   </div>
