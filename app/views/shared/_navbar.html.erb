@@ -23,8 +23,9 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-secondary" %>
+          <li class="nav-item d-flex align-items-center">
+          <div><ion-icon size="large" name="log-in-outline"></ion-icon> </div>
+          <div><%= link_to "Login", new_user_session_path, class:"nav-link p-0", style: "color: white;"%></div>
           </li>
         <% end %>
       </ul>
