@@ -9,14 +9,14 @@
 type = ["Income", "Expense"]
 value = (50..100).to_a
 category_expense = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest", "Leisure"]
-category_income = ["Salary", "Dividends", "Bonus", "Tax Refund", "Gift", "Other"]
+category_income = ["Salary", "Dividends", "Other"]
 
 
 
 
-50.times do
+300.times do
   puts "creating now"
-  date = ((Date.today - 40)..Date.today).to_a.sample
+  date = ((Date.today - 365)..Date.today).to_a.sample
   transaction = Transaction.new(type_transaction: type.sample, date: date, value: value.sample, user_id: 1)
   if transaction.type_transaction == "Expense"
     transaction.category = category_expense.sample
