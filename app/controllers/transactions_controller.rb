@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   def new
     @transaction = Transaction.new
+    @elem = params[:elem]
   end
 
   def index

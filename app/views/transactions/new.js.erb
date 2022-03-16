@@ -1,0 +1,14 @@
+$("a.click-me").click(function(e){
+  e.preventDefault();
+  let myBs = $(this).attr('data-bs-target');
+  if(myBs === "#incomeModal"){
+    $("div.my_target").attr('id','incomeModal');
+    $("div.my_target").attr('aria-labelledby','incomeModalLabel');
+  }else{
+    $("div.my_target").attr('id','expenseModal');
+    $("div.my_target").attr('aria-labelledby','expenseModalLabel');
+  }
+
+  $(myBs.concat(" .modal-content")).html('<%= j render "new", transaction: @transaction, locals:{elem: @elem}%>');
+  $(myBs).modal('show');
+});

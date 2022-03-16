@@ -1,18 +1,20 @@
-
 <div class="row justify-content-center">
   <div class="container-expenses">
       <div class ="navbar-expenses">
         <div class="add-expense">
           New
-            <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#incomeModal">
-                income
-            </div>
-            <%= render "new", locals: {elem: "income"} %>
+            <%= link_to "income", new_user_transaction_path(current_user, @transaction, elem:"income"),
+              data: {bs_toggle:"modal", bs_target:"#incomeModal"}, remote: true, class:"click-me"%>
 
-            <div class="dropdown-item" data-bs-toggle="modal" data-bs-target="#expenseModal">
-                expense
+            <%= link_to "expense", new_user_transaction_path(current_user, @transaction,  elem: "expense"),
+              data: {bs_toggle:"modal", bs_target:"#expenseModal"}, remote: true, class:"click-me"%>
+
+            <div class="modal fade my_target" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    </div>
+                </div>
             </div>
-            <%= render "new", locals: {elem: "expense"} %>
         </div>
         <div class="time-selection">
           <button class="button-chevron" > < </button>
@@ -47,12 +49,6 @@
     </div>
   </div>
 </div>
-
-
-<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id:"myeditModal", remote: true %>
-
-
-
  <%# <%= button_tag "+",  class: "dropdown",
               id: "expenseDropdown", data: { bs_toggle: "dropdown" },
               'aria-haspopup': true,'aria-expanded': false
