@@ -29,17 +29,14 @@
           </div>
       </div>
 
+       <%= render @transactions%>
 
-       <% @transactions.order(date: :desc).each do |transaction| %>
-       <div class="expense-card">
-            <%= content_tag(:div, transaction.date)%>
-            <%= content_tag(:div, transaction.category)%>
-            <%= content_tag(:div, transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value)%>
-            <%= content_tag(:div, link_to("edit", edit_user_transaction_path(current_user, transaction)))%>
-            <%= content_tag(:div, link_to("delete", [current_user, transaction], method: :delete)) %>
-       </div>
-       <% end %>
-
+       <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+              </div>
+          </div>
+        </div>
 
       <div class="footer-expenses">
         <div>My balance</div>
@@ -50,19 +47,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, remote: true %>
-
-
-<%# <div data-bs-toggle="modal" data-bs-target="#editModal" remote = true id= "myEditModal" >
-              edit
-</div> %>
-            <%#= render "edit", transaction: transaction %>
 
 
 <%#= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id:"myeditModal", remote: true %>
