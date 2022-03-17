@@ -3,11 +3,17 @@
       <div class ="navbar-expenses">
         <div class="add-expense" data-controller="modal">
           New
-            <%= link_to "income", new_user_transaction_path(current_user, @transaction, elem:"income"),
-              data: {bs_toggle:"modal", bs_target:"#incomeModal", action:"click->modal#displayModal"}, remote: true, class:"click-me-income"%>
+             <%= button_tag "+",  class: "dropdown",
+              id: "expenseDropdown", data: { bs_toggle: "dropdown" },
+              'aria-haspopup': true,'aria-expanded': false
+            %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
+                  <%= link_to "income", new_user_transaction_path(current_user, @transaction, elem:"income"),
+                  data: {bs_toggle:"modal", bs_target:"#incomeModal", action:"click->modal#displayModal"}, remote: true, class:"dropdown-item"%>
 
             <%= link_to "expense", new_user_transaction_path(current_user, @transaction,  elem: "expense"),
-              data: {bs_toggle:"modal", bs_target:"#expenseModal", action:"click->modal#displayModal"}, remote: true, class:"click-me-expense"%>
+              data: {bs_toggle:"modal", bs_target:"#expenseModal", action:"click->modal#displayModal"}, remote: true, class:"dropdown-item"%>
+            </div>
 
             <div class="modal fade my_target" id="incomeModal" tabindex="-1" aria-labelledby="incomeModalLabel" aria-hidden="true" data-modal-target="incomeModal">
               <div class="modal-dialog">
@@ -56,11 +62,3 @@
     </div>
   </div>
 </div>
- <%# <%= button_tag "+",  class: "dropdown",
-              id: "expenseDropdown", data: { bs_toggle: "dropdown" },
-              'aria-haspopup': true,'aria-expanded': false
-          %>
-<%#         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="expenseDropdown">
-
-
-          </div> %>
