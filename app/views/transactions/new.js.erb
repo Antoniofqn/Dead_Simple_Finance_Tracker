@@ -1,0 +1,8 @@
+<% if @elem == "income" %>
+  $("#incomeModal .modal-content").html('<%= j render "new_income", transaction: @transaction, locals:{elem: @elem}%>');
+  $("#incomeModal").modal('show');
+
+<% else %>
+  $("#expenseModal .modal-content").html('<%= j render "new_expense", transaction: @transaction, locals:{elem: @elem}%>');
+  $("#expenseModal").modal('show');
+<% end %>
