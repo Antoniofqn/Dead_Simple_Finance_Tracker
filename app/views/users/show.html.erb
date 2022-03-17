@@ -5,8 +5,8 @@
           <div class="d-flex flex-column align-items-center p-2">
             <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
             <%= user_has_photo?(current_user) %>
-            <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);">
-              <h4>Your Goals:</h4>
+            <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);" data-bs-toggle="modal" data-bs-target="#form-goal">
+              <h4>Goal:</h4>
               <div>
                 <h6>Goal</h6>
                 <h6>Goal</h6>
@@ -108,6 +108,14 @@
   <div class="modal-dialog">
     <div class="modal-content" style="padding:50px">
       <%= render "form_expense", transaction: @transaction %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="form-goal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="padding:50px">
+      <%= render "form_goal", goal: @goal %>
     </div>
   </div>
 </div>

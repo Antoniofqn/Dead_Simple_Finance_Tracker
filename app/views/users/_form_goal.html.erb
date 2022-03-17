@@ -1,0 +1,5 @@
+<%= simple_form_for([current_user, goal]) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :objective, label: "Objective" %>
+  <%= f.button :submit, "Create Goal", class: "btn btn-primary" %>
+<% end %>
