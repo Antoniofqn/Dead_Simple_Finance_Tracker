@@ -15,7 +15,7 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @value_from_new = session[:passed_variable]
+    @elem = session[:passed_variable]
     @transaction = Transaction.new
     @transaction.assign_attributes(transaction_params)
     @transaction.user = current_user
