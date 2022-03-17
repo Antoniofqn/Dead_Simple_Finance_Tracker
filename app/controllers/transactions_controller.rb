@@ -16,12 +16,10 @@ class TransactionsController < ApplicationController
 
   def create
     @value_from_new = session[:passed_variable]
-    @transactions = Transaction.all
     @transaction = Transaction.new
     @transaction.assign_attributes(transaction_params)
     @transaction.user = current_user
     @transaction.save
-
   end
 
   def edit
