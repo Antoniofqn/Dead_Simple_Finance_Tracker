@@ -1,15 +1,6 @@
 <% if @transaction.errors.any? %>
-  <% if @value_from_new  == "income"%>
-    $("#incomeModal .modal-content").html('<%= j render "new_income", transaction: @transaction, locals:{elem:"income"} %>');
-  <% else %>
-    $("#expenseModal .modal-content").html('<%= j render "new_expense", transaction: @transaction, locals:{elem:"income"} %>');
-  <% end %>
-
+  $(`#${"<%=@elem%>"}Modal .modal-content`).html('<%= j render "new", transaction: @transaction, locals:{elem: @elem}%>');
 <% else %>
-  <% if @value_from_new == "income" %>
-    $("#incomeModal").modal('hide');
-  <% else %>
-    $("#expenseModal").modal('hide');
-  <% end %>
+  $(`#${"<%=@elem%>"}Modal`).modal('hide');
   window.location.reload()
 <% end %>
