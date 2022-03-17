@@ -1,9 +1,4 @@
 class TransactionsController < ApplicationController
-  def new
-    @transaction = Transaction.new
-    @elem = params[:elem]
-  end
-
   def index
     @transaction = Transaction.new
     if (params[:query].present? && params[:query] == "all") || !params[:query].present?
@@ -13,14 +8,20 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def new
+    @transaction = Transaction.new
+    @elem = params[:elem]
+    session[:passed_variable] = @elem
+  end
+
   def create
-    @transaction = Transaction.new(transaction_params)
+    @value_from_new = session[:passed_variable]
+    @transactions = Transaction.all
+    @transaction = Transaction.new
+    @transaction.assign_attributes(transaction_params)
     @transaction.user = current_user
-    if @transaction.save
-      redirect_to user_transactions_path
-    else
-      render partial: "new"
-    end
+    @transaction.save
+
   end
 
   def edit
