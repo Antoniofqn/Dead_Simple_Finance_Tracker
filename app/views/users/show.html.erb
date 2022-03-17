@@ -5,15 +5,29 @@
           <div class="d-flex flex-column align-items-center p-2">
             <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
             <%= user_has_photo?(current_user) %>
-            <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);" data-bs-toggle="modal" data-bs-target="#form-goal">
-              <h4>Goal:</h4>
-              <div>
-                <h6>Goal</h6>
-                <h6>Goal</h6>
-                <h6>show more</h6>
-              </div>
+
+            <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);">
+              <% if current_user.goals.last.nil?  %>
+                <h4 data-bs-toggle="modal" data-bs-target="#form-goal">Create Goal</h4>
+              <% elsif current_user.goals.last.achieved %>
+                <h4><% current_user.goals.last.name %> Achieved!</h4>
+                <h4 data-bs-toggle="modal" data-bs-target="#form-goal">Create New Goal</h4>
+              <% elsif current_user.goals.last.cancelled%>
+                <h4 data-bs-toggle="modal" data-bs-target="#form-goal">Create New Goal</h4>
+              <% else %>
+                <h4>Current Goal: <%= current_user.goals.last.name %></h4>
+              <% end %>
+              <% unless current_user.goals.last.nil? || current_user.goals.last.achieved || current_user.goals.last.cancelled %>
+                <div>
+                  <h6>Goal: R$ <%= current_user.goals.last.objective %>,00</h6>
+                  <h6>Savings: R$ <%= current_user.goals.last.current_value %>,00</h6>
+                  <h6>Add</h6>
+                  <h6>Cancel</h6>
+                </div>
+              <% end %>
             </div>
           </div>
+
           <div class="info-box">
             <div class="saldo-box">
               <h3>Monthly Balance: <br>
