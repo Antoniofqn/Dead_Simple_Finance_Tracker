@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :stats, only: %i[index]
+  resources :calculators, only: %i[index]
 end
