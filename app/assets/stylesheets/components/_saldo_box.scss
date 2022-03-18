@@ -6,3 +6,23 @@
   border-radius: 20px;
   opacity: 0.7;
 }
+
+#toggle-1 {
+  display:none;
+}
+
+label {
+ -webkit-appearance: push-button;
+ -moz-appearance: button;
+ display: inline-block;
+ cursor: pointer;
+ padding: 5px;
+}
+
+#mostra {
+  display:none;
+}
+
+#toggle-1:checked ~ #mostra {
+  display:block;
+}

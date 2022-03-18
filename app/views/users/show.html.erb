@@ -8,9 +8,9 @@
             <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);">
               <h4>Your Goals:</h4>
               <div>
-                <h6>Goal</h6>
-                <h6>Goal</h6>
-                <h6>show more</h6>
+                <ion-icon name="gift"></ion-icon> <h6>Goal</h6>
+                <ion-icon name="gift"></ion-icon> <h6>Goal</h6>
+                <h6>Show more</h6>
               </div>
             </div>
           </div>
@@ -37,14 +37,15 @@
             </div>
             <div class="container quick-action-buttons">
               <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-income">
-                <h1 style="color: green;">+</h1>
-                <p>Add Income</p>
+                <h1 style="color: green;"><ion-icon name="add-circle"></ion-icon></h1>
+                <p>ADD INCOME</p>
               </div>
               <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-expense">
-                <h1 style="color: red;">-</h1>
-                <p>Add Expense</p>
+                <h1 style="color: red;"><ion-icon name="card"></ion-icon></h1>
+                <p>ADD EXPENSE</p>
               </div>
               <div class="card-quick">
+              <h1 style="color: blue;"><ion-icon name="checkmark-done"></ion-icon></h1>
                 <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
               </div>
             </div>
