@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :transactions
+  has_many :goals
   has_one_attached :photo
 
   def fetch_monthly_income

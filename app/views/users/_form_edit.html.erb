@@ -1,0 +1,4 @@
+<%= simple_form_for([current_user, goal]) do |f| %>
+  <%= f.input :current_value, label: "How much do you want to allocate?" %>
+  <%= f.button :submit, "Save", class: "btn btn-primary" %>
+<% end %>
