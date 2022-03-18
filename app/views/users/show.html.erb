@@ -53,28 +53,19 @@
               <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"income"),
                   data: {bs_toggle:"modal", bs_target:"#incomeModal"}, style:"text-decoration:none", remote: true) do%>
                 <%= content_tag :div, class:"card-quick" do %>
-                    <%= content_tag :h1, "+", style:"color:green"  do%>
-
-                    <% end%>
-                    <%= content_tag :p, "Add Income"  do %>
-
-                    <% end %>
+                <div> <ion-icon size="large" name="add-circle-outline" style="color:green"></ion-icon> </div>
+                    <%= content_tag :p, "Add Income", style:"color:green"%>
                   <% end %>
               <% end %>
-
               <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"expense"),
                   data: {bs_toggle:"modal", bs_target:"#expenseModal"}, style:"text-decoration:none", remote: true) do%>
-                <%= content_tag :div, class:"card-quick" do %>
-                    <%= content_tag :h1, "+", style:"color:red"  do%>
-
-                    <% end%>
-                    <%= content_tag :p, "Add Expense"  do %>
-
-                    <% end %>
+                    <%= content_tag :div, class:"card-quick" do %>
+                    <div> <ion-icon size="large" name="wallet-outline" style="color:red"></ion-icon> </div>
+                    <%= content_tag :p, "Add Expense", style:"color:red"%>
                   <% end %>
               <% end %>
-
               <div class="card-quick">
+              <div> <ion-icon size="medium" name="checkmark-done-outline" style="color:blue"></ion-icon> </div>
                 <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
               </div>
             </div>
