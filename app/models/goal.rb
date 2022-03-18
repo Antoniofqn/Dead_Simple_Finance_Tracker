@@ -3,10 +3,12 @@ class Goal < ApplicationRecord
 
   def cancel!
     self.cancelled = true
+    self.save
   end
 
   def achieve!
     self.achieved = true
+    self.save
   end
 
   def check

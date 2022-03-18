@@ -10,6 +10,27 @@ class GoalsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @goal = Goal.find(params[:id])
+    @goal.current_value = @goal.current_value + params["goal"]["current_value"].to_i
+    @goal.save
+      if @goal.current_value > @goal.objective
+        @goal.achieve!
+        redirect_to user_path(current_user), notice: "Congratulations! You've achieved your goal!"
+      else
+        redirect_to user_path(current_user)
+      end
+  end
+
+  def cancel
+    goal = current_user.goals.last
+    goal.cancel!
+    redirect_to user_path(current_user), notice: "Goal cancelled!"
+  end
+
 
   private
 
