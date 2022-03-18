@@ -1,5 +1,5 @@
 <% if @transaction.errors.any? %>
-  $(`#${"<%=@elem%>"}Modal .modal-content`).html('<%= j render "new", transaction: @transaction, locals:{elem: @elem}%>');
+  $(`#${"<%=@elem%>"}Modal .modal-content`).html('<%= j render "/transactions/new", transaction: @transaction, locals:{elem: @elem}%>');
 <% else %>
   $(`#${"<%=@elem%>"}Modal`).modal('hide');
   window.location.reload()

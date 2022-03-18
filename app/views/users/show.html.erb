@@ -18,27 +18,41 @@
           <div class="d-flex flex-column align-items-center p-2">
             <h5 class="card-title" style="text-align:center;">Welcome <%= @user.first_name %>!</h5>
             <%= user_has_photo?(current_user) %>
+
             <div class="d-flex flex-column mt-3 p-2" style="border-radius: 20px; box-shadow: 0 14px 21px 0 rgba(0,0,0,.06);">
-              <h4>Your Goals:</h4>
-              <div>
-                <h6>Goal</h6>
-                <h6>Goal</h6>
-                <h6>show more</h6>
-              </div>
+              <% if current_user.goals.last.nil?  %>
+                <h4 data-bs-toggle="modal" data-bs-target="#form-goal">Create Goal</h4>
+              <% elsif current_user.goals.last.achieved %>
+                <h4><%= current_user.goals.last.name %> Achieved!</h4>
+                <h4 data-bs-toggle="modal" data-bs-target="#form-goal">Create New Goal</h4>
+              <% elsif current_user.goals.last.cancelled%>
+                <h4 data-bs-toggle="modal" data-bs-target="#form-goal">Create New Goal</h4>
+              <% else %>
+                <h4>Current Goal: <%= current_user.goals.last.name %></h4>
+              <% end %>
+              <% unless current_user.goals.last.nil? || current_user.goals.last.achieved || current_user.goals.last.cancelled %>
+                <div>
+                  <h6>Goal: R$ <%= current_user.goals.last.objective %>,00</h6>
+                  <h6>Savings: R$ <%= current_user.goals.last.current_value %>,00</h6>
+                  <h6 data-bs-toggle="modal" data-bs-target="#form-edit">Add</h6>
+                  <h6> <%= link_to "Cancel", cancel_user_goal_path(current_user.goals.last), :method => :put, remote: true %></h6>
+                </div>
+              <% end %>
             </div>
           </div>
+
           <div class="info-box">
             <div class="saldo-box">
               <h3>Monthly Balance: <br>
-              R$ <%= format("%.2f", @user.fetch_monthly_income.to_f - @user.fetch_monthly_expense.to_f) %></h1>
+              R$ <%= display_as_currency(@user.fetch_monthly_income.to_f - @user.fetch_monthly_expense.to_f) %></h1>
             </div>
             <div class="both-details-box">
               <div class="details-box" style="margin-right: 5px;">
-                <p style="color: green;">R$ <%= @user.fetch_monthly_income %></p>
+                <p style="color: green;">R$ <%= display_as_currency(@user.fetch_monthly_income) %></p>
                 <p>Monthly Income</p>
               </div>
               <div class="details-box">
-                <p style="color: red;">R$ <%= @user.fetch_monthly_expense %></p>
+                <p style="color: red;">R$ <%= display_as_currency(@user.fetch_monthly_expense) %></p>
                 <p>Monthly Expenses</p>
               </div>
             </div>
@@ -49,14 +63,30 @@
               <h1 style="text-align:center; opacity: 0.7;">Quick Actions</h1>
             </div>
             <div class="container quick-action-buttons">
-              <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-income">
-                <h1 style="color: green;">+</h1>
-                <p>Add Income</p>
-              </div>
-              <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-expense">
-                <h1 style="color: red;">-</h1>
-                <p>Add Expense</p>
-              </div>
+              <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"income"),
+                  data: {bs_toggle:"modal", bs_target:"#incomeModal"}, style:"text-decoration:none", remote: true) do%>
+                <%= content_tag :div, class:"card-quick" do %>
+                    <%= content_tag :h1, "+", style:"color:green"  do%>
+
+                    <% end%>
+                    <%= content_tag :p, "Add Income"  do %>
+
+                    <% end %>
+                  <% end %>
+              <% end %>
+
+              <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"expense"),
+                  data: {bs_toggle:"modal", bs_target:"#expenseModal"}, style:"text-decoration:none", remote: true) do%>
+                <%= content_tag :div, class:"card-quick" do %>
+                    <%= content_tag :h1, "+", style:"color:red"  do%>
+
+                    <% end%>
+                    <%= content_tag :p, "Add Expense"  do %>
+
+                    <% end %>
+                  <% end %>
+              <% end %>
+
               <div class="card-quick">
                 <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
               </div>
@@ -203,18 +233,32 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="form-income" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade my_target" id="incomeModal" tabindex="-1" aria-labelledby="incomeModalLabel" aria-hidden="true" data-modal-target="incomeModal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                  </div>
+                </div>
+            </div>
+
+<div class="modal fade my_target" id="expenseModal"  aria-labelledby="expenseModalLabel" tabindex="-1" aria-hidden="true" data-modal-target="expenseModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="form-goal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" style="padding:50px">
-      <%= render "form_income", transaction: @transaction %>
+      <%= render "form_goal", goal: @goal %>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="form-expense" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="form-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" style="padding:50px">
-      <%= render "form_expense", transaction: @transaction %>
+      <%= render "form_edit", goal: current_user.goals.last %>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 module ApplicationHelper
   def extract_values(transactions)
-    transactions.map { |x| x.type_transaction == "Expense" ? x.value * -1 : x.value }
+    display_as_currency(transactions.map { |x| x.type_transaction == "Expense" ? x.value * -1 : x.value }.reduce(:+))
   end
 
   def user_has_photo?(user)
@@ -21,5 +21,14 @@ module ApplicationHelper
     image_tag "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
               class: "avatar dropdown-toggle", id: "navbarDropdown",
               data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false
+  end
+
+  def display_as_currency(value)
+    number_with_precision(
+      value,
+      precision: 2,
+      separator: ',',
+      delimiter: '.'
+    )
   end
 end
