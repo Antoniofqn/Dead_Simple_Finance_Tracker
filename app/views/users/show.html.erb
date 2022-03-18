@@ -40,20 +40,18 @@
               <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"income"),
                   data: {bs_toggle:"modal", bs_target:"#incomeModal"}, style:"text-decoration:none", remote: true) do%>
                 <%= content_tag :div, class:"card-quick",style:"color:red"   do %>
-                   <ion-icon name="add-circle">/h1>
+                   <ion-icon name="add-circle">
                     <% end%>
                     <%= content_tag :p, "Add Income" %>
-                  <% end %>
               <% end %>
 
               <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"expense"),
                   data: {bs_toggle:"modal", bs_target:"#expenseModal"}, style:"text-decoration:none", remote: true) do%>
                 <%= content_tag :div, class:"card-quick" do %>
                     <%= content_tag :h1, "+", style:"color:red"  do%>
-                  <ion-icon name="card"></ion-icon></h1>
+                  <ion-icon name="card"></ion-icon>
                     <% end%>
                     <%= content_tag :p, "Add Expense" %>
-                  <% end %>
               <% end %>
 
               <div class="card-quick">
