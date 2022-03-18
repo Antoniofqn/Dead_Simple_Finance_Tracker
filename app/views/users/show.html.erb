@@ -17,15 +17,15 @@
           <div class="info-box">
             <div class="saldo-box">
               <h3>Monthly Balance: <br>
-              R$ <%= format("%.2f", @user.fetch_monthly_income.to_f - @user.fetch_monthly_expense.to_f) %></h1>
+              R$ <%= display_as_currency(@user.fetch_monthly_income.to_f - @user.fetch_monthly_expense.to_f) %></h1>
             </div>
             <div class="both-details-box">
               <div class="details-box" style="margin-right: 5px;">
-                <p style="color: green;">R$ <%= @user.fetch_monthly_income %></p>
+                <p style="color: green;">R$ <%= display_as_currency(@user.fetch_monthly_income) %></p>
                 <p>Monthly Income</p>
               </div>
               <div class="details-box">
-                <p style="color: red;">R$ <%= @user.fetch_monthly_expense %></p>
+                <p style="color: red;">R$ <%= display_as_currency(@user.fetch_monthly_expense) %></p>
                 <p>Monthly Expenses</p>
               </div>
             </div>

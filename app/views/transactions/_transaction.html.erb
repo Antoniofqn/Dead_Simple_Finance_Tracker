@@ -1,7 +1,9 @@
 <div class="expense-card" data-user-id="<%= transaction.id %>">
   <%= content_tag(:div, transaction.date)%>
   <%= content_tag(:div, transaction.category)%>
-  <%= content_tag(:div, transaction.type_transaction =="Expense" ? transaction.value * -1 : transaction.value)%>
+  <%= content_tag(:div,transaction.type_transaction =="Expense" ?
+  display_as_currency(transaction.value * - 1) :
+  display_as_currency(transaction.value)) %>
   <%= link_to "edit", edit_user_transaction_path(current_user, transaction), data: {bs_toggle:"modal", bs_target:"#editModal"}, id:"myEditModal", remote: true %>
   <%= content_tag(:div, link_to("delete", [current_user, transaction], method: :delete)) %>
 </div>
