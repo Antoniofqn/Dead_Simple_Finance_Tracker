@@ -1,2 +1,2 @@
-$("#editModal .modal-content").html('<%= j render "edit", transaction: @transaction %>');
+$("#editModal .modal-content").html('<%= j render "/transactions/edit", transaction: @transaction %>');
 $("#editModal").modal('show');

@@ -36,14 +36,30 @@
               <h1 style="text-align:center; opacity: 0.7;">Quick Actions</h1>
             </div>
             <div class="container quick-action-buttons">
-              <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-income">
-                <h1 style="color: green;">+</h1>
-                <p>Add Income</p>
-              </div>
-              <div class="card-quick" data-bs-toggle="modal" data-bs-target="#form-expense">
-                <h1 style="color: red;">-</h1>
-                <p>Add Expense</p>
-              </div>
+              <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"income"),
+                  data: {bs_toggle:"modal", bs_target:"#incomeModal"}, style:"text-decoration:none", remote: true) do%>
+                <%= content_tag :div, class:"card-quick" do %>
+                    <%= content_tag :h1, "+", style:"color:green"  do%>
+
+                    <% end%>
+                    <%= content_tag :p, "Add Income"  do %>
+
+                    <% end %>
+                  <% end %>
+              <% end %>
+
+              <%= link_to(new_user_transaction_path(current_user, @transaction, elem:"expense"),
+                  data: {bs_toggle:"modal", bs_target:"#expenseModal"}, style:"text-decoration:none", remote: true) do%>
+                <%= content_tag :div, class:"card-quick" do %>
+                    <%= content_tag :h1, "+", style:"color:red"  do%>
+
+                    <% end%>
+                    <%= content_tag :p, "Add Expense"  do %>
+
+                    <% end %>
+                  <% end %>
+              <% end %>
+
               <div class="card-quick">
                 <h2><%= link_to "Stats", stats_path, class: "text-decoration-none" %></h2>
               </div>
@@ -190,18 +206,16 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="form-income" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="padding:50px">
-      <%= render "form_income", transaction: @transaction %>
-    </div>
-  </div>
-</div>
+<div class="modal fade my_target" id="incomeModal" tabindex="-1" aria-labelledby="incomeModalLabel" aria-hidden="true" data-modal-target="incomeModal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                  </div>
+                </div>
+            </div>
 
-<div class="modal fade" id="form-expense" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="padding:50px">
-      <%= render "form_expense", transaction: @transaction %>
+<div class="modal fade my_target" id="expenseModal"  aria-labelledby="expenseModalLabel" tabindex="-1" aria-hidden="true" data-modal-target="expenseModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
     </div>
-  </div>
 </div>
