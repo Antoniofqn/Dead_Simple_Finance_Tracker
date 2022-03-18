@@ -3,7 +3,7 @@ class Transaction < ApplicationRecord
 
   validates :type_transaction, :date, :value, :category, presence: true
 
-  validates :value, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :value, numericality: { only_integer: false, greater_than_or_equal_to: 0 }
 
   EXPENSE_CATEGORIES = ["Rent", "Mortgage", "House Bills", "Insurance", "Health", "Groceries", "Fuel", "Interest",
                         "Leisure"]
