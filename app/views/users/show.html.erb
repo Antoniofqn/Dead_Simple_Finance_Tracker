@@ -106,6 +106,100 @@
       <% end %>
     </div>
   </div>
+
+  <div class="container flex-direction-row-center justify-content-between mb-2 pb-3">
+    <div class="card col-md-5" style= "border-radius: 15px; height: fit-content;">
+      <h1>Dead Simple News</h1>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="<%= @news["articles"][0]["url"] %>" target="_blank">
+              <% if @news["articles"][0]["urlToImage"].nil? %>
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+              <% else %>
+                <img src="<%= @news["articles"][0]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
+              <% end %>
+              <div class="carousel-caption d-none d-md-block" style="font-family: 'Lora', serif;">
+                <h5><%= @news["articles"][0]["title"] %></h5>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="<%= @news["articles"][1]["url"] %>" target="_blank">
+              <a href="<%= @news["articles"][1]["url"] %>" target="_blank">
+              <% if @news["articles"][1]["urlToImage"].nil? %>
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+              <% else %>
+                <img src="<%= @news["articles"][1]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
+              <% end %>
+              <div class="carousel-caption d-none d-md-block" style="font-family: 'Lora', serif;">
+                <h5><%= @news["articles"][1]["title"] %></h5>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="<%= @news["articles"][2]["url"] %>" target="_blank">
+              <a href="<%= @news["articles"][2]["url"] %>" target="_blank">
+              <% if @news["articles"][2]["urlToImage"].nil? %>
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+              <% else %>
+                <img src="<%= @news["articles"][2]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
+              <% end %>
+              <div class="carousel-caption d-none d-md-block" style="font-family: 'Lora', serif;">
+                <h5><%= @news["articles"][2]["title"] %></h5>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="<%= @news["articles"][3]["url"] %>" target="_blank">
+              <% if @news["articles"][3]["urlToImage"].nil? %>
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 450px; height: 250px">
+              <% else %>
+                <img src="<%= @news["articles"][3]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
+              <% end %>
+              <div class="carousel-caption d-none d-md-block" style="font-family: 'Lora', serif;">
+                <h5><%= @news["articles"][3]["title"] %></h5>
+              </div>
+            </a>
+          </div>
+          <div class="carousel-item">
+            <a href="<%= @news["articles"][4]["url"] %>" target="_blank">
+              <a href="<%= @news["articles"][4]["url"] %>" target="_blank">
+              <% if @news["articles"][4]["urlToImage"].nil? %>
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+              <% else %>
+                <img src="<%= @news["articles"][4]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
+              <% end %>
+              <div class="carousel-caption d-none d-md-block" style="font-family: 'Lora', serif;">
+                <h5><%= @news["articles"][4]["title"] %></h5>
+              </div>
+            </a>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="card-video col-md-5" style= "border-radius: 15px; border: 1px solid rgba(0, 0, 0, 0.125); height: fit-content; background-color: white;">
+      <h1>Dead Simple Education</h1>
+      <div>
+        <iframe style="border-radius: 15px;" src="https://www.youtube.com/embed/videoseries?list=PL_P33t8sRbsWvqrcX2X4hGAo4o7bDLqYB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 </div>
 
 

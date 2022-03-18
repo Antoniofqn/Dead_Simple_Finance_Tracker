@@ -1,0 +1,2 @@
+$(`#${"<%=@elem%>"}Modal .modal-content`).html('<%= j render "new", transaction: @transaction, locals:{elem: @elem}%>');
+$(`#${"<%=@elem%>"}Modal`).modal('show');
