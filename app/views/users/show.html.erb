@@ -1,5 +1,33 @@
 <div class= "container col-12 mb-5 pb-5" style="margin-top: 20px">
   <div class="container justify-content-center">
+    <div data-controller="user-subscription" data-user-subscription-user-id-value="<%= @user.id %>" >
+      <div data-user-subscription-target="stocks">
+        <ul class="d-flex justify-content-around">
+          <li class="aapl">
+            <p class="stock-title">AAPL/Apple</p>
+            <p class="stock-value"></p>
+          </li>
+          <li class="qqq">
+            <p class="stock-title">QQQ</p>
+            <p class="stock-value"></p>
+          </li>
+          <li class="ixic">
+            <p class="stock-title">IXIC/Nasdaq</p>
+            <p class="stock-value"></p>
+          </li>
+          <li class="trp">
+            <p class="stock-title">TC Energy</p>
+            <p class="stock-value"></p>
+          </li>
+          <li class="eur/usd">
+            <p class="stock-title">EUR/USD</p>
+            <p class="stock-value"></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container justify-content-center">
     <div class="card mb-3" style="border-radius: 15px;">
       <div class="d-flex justify-content-around">
           <div class="d-flex flex-column align-items-center p-2">
@@ -129,7 +157,7 @@
           <div class="carousel-item active">
             <a href="<%= @news["articles"][0]["url"] %>" target="_blank">
               <% if @news["articles"][0]["urlToImage"].nil? %>
-                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 455px; height: 200px;">
               <% else %>
                 <img src="<%= @news["articles"][0]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
               <% end %>
@@ -142,7 +170,7 @@
             <a href="<%= @news["articles"][1]["url"] %>" target="_blank">
               <a href="<%= @news["articles"][1]["url"] %>" target="_blank">
               <% if @news["articles"][1]["urlToImage"].nil? %>
-                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 455px; height: 200px;">
               <% else %>
                 <img src="<%= @news["articles"][1]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
               <% end %>
@@ -155,7 +183,7 @@
             <a href="<%= @news["articles"][2]["url"] %>" target="_blank">
               <a href="<%= @news["articles"][2]["url"] %>" target="_blank">
               <% if @news["articles"][2]["urlToImage"].nil? %>
-                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 455px; height: 200px;">
               <% else %>
                 <img src="<%= @news["articles"][2]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
               <% end %>
@@ -167,7 +195,7 @@
           <div class="carousel-item">
             <a href="<%= @news["articles"][3]["url"] %>" target="_blank">
               <% if @news["articles"][3]["urlToImage"].nil? %>
-                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 450px; height: 250px">
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 455px; height: 200px;">
               <% else %>
                 <img src="<%= @news["articles"][3]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
               <% end %>
@@ -180,7 +208,7 @@
             <a href="<%= @news["articles"][4]["url"] %>" target="_blank">
               <a href="<%= @news["articles"][4]["url"] %>" target="_blank">
               <% if @news["articles"][4]["urlToImage"].nil? %>
-                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%);">
+                <img src="https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647536970/Title_xeajj0.jpg" alt="" style="border-radius: 15px; filter: brightness(40%); width: 455px; height: 200px;">
               <% else %>
                 <img src="<%= @news["articles"][4]["urlToImage"] %>" class="d-block w-100" alt="..." style="border-radius: 15px; filter: brightness(40%);">
               <% end %>
