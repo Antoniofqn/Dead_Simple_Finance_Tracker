@@ -255,10 +255,12 @@
   </div>
 </div>
 
-<div class="modal fade" id="form-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="padding:50px">
-      <%= render "form_edit", goal: current_user.goals.last %>
+<% unless current_user.goals.last.nil?  %>
+  <div class="modal fade" id="form-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="padding:50px">
+        <%= render "form_edit", goal: current_user.goals.last %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
