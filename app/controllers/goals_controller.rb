@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to user_path(current_user)
     else
-      render partial: "form_goal"
+      redirect_to user_path(current_user), notice: "Goal creation failed. You must fill all fields"
     end
   end
 

@@ -1,6 +1,8 @@
 class Goal < ApplicationRecord
   belongs_to :user
 
+  validates :name, :objective, presence: true
+
   def cancel!
     self.cancelled = true
     self.save
