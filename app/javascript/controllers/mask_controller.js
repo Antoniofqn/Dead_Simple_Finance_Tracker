@@ -9,6 +9,8 @@ export default class extends Controller {
 
   format(){
 
+      if(this.valueTarget.value === "") this.valueTarget.value = "0,00"
+
       let size = this.valueTarget.value.length;
       let cleanString = "";
 
@@ -47,6 +49,9 @@ export default class extends Controller {
     }
 
     send(){
+
+      console.log(this.valueTarget.value)
+
       let size = this.valueTarget.value.length;
       let cleanString = "";
 

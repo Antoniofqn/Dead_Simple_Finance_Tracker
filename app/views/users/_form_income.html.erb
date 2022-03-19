@@ -4,5 +4,5 @@
   <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "Income"} %>
   <%= f.input :category, collection: Transaction::INCOME_CATEGORIES %>
   <%= f.input :tag %>
-  <%= f.button :submit, "Create Income", class: "btn btn-primary", "data-mask-target":"submit", "data-action":"click->mask#send" %>
+  <%= f.button :submit, "Create Income", class: "btn btn-primary", "data-action":"click->mask#send" %>
 <% end %>
