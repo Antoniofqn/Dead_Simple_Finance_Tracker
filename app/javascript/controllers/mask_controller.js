@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["value"]
+  static targets = ["value", "submit"]
 
   connect() {
     // console.log(this.valueTarget)
@@ -44,6 +44,27 @@ export default class extends Controller {
 
       this.valueTarget.value = this.valueTarget.value.substr(0, size - 2) + "," + this.valueTarget.value.substr(size - 2)
 
+    }
+
+    send(){
+      let size = this.valueTarget.value.length;
+      let cleanString = "";
+
+      for(let i = 0; i < size; i ++){
+        if(this.valueTarget.value[i] !== "," && this.valueTarget.value[i] !== ".") {
+          cleanString += this.valueTarget.value[i]
+        }
+      }
+
+      this.valueTarget.value = cleanString
+
+      size = this.valueTarget.value.length
+
+      this.valueTarget.value = this.valueTarget.value.substr(0, size - 2) + "." + this.valueTarget.value.substr(size - 2)
+
+      this.valueTarget.value = parseFloat(this.valueTarget.value).toFixed(2)
+
+      console.log(this.valueTarget.value)
     }
 
   }
