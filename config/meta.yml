@@ -1,5 +1,5 @@
 meta_product_name: "Dead Simple Finance"
 meta_title: "Dead Simple Finance - The easiest way to track where you spend"
 meta_description: "DS Finance helps you discover your spending habits and fine tune your finances to help you achieve your dreams"
-meta_image: "DSlogo1200x630.png" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 twitter_account: "@Deadsimplefina1"   # required for Twitter Cards
