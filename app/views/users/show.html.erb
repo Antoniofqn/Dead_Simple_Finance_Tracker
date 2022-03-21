@@ -47,8 +47,8 @@
               <% end %>
               <% unless current_user.goals.last.nil? || current_user.goals.last.achieved || current_user.goals.last.cancelled %>
                 <div>
-                  <h6>Goal: R$ <%= current_user.goals.last.objective %>,00</h6>
-                  <h6>Savings: R$ <%= current_user.goals.last.current_value %>,00</h6>
+                  <h6>Goal: R$ <%= display_as_currency(current_user.goals.last.objective) %></h6>
+                  <h6>Savings: R$ <%= display_as_currency(current_user.goals.last.current_value) %></h6>
                   <h6 data-bs-toggle="modal" data-bs-target="#form-edit">Add</h6>
                   <h6> <%= link_to "Cancel", cancel_user_goal_path(current_user.goals.last), :method => :put, remote: true %></h6>
                 </div>
@@ -255,7 +255,7 @@
 
 <div class="modal fade" id="form-goal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content" style="padding:50px">
+    <div class="modal-content" style="padding:50px" data-controller="mask">
       <%= render "form_goal", goal: @goal %>
     </div>
   </div>
@@ -264,7 +264,7 @@
 <% unless current_user.goals.last.nil?  %>
   <div class="modal fade" id="form-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content" style="padding:50px">
+      <div class="modal-content" style="padding:50px" data-controller="mask">
         <%= render "form_edit", goal: current_user.goals.last %>
       </div>
     </div>
