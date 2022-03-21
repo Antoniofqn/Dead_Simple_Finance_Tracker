@@ -3,13 +3,16 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dmtwwkxzz/image/upload/v1647268176/Logo-_1_akxw7e.png", class: "m-0 p-0", style: "width: 50px; height: 50px;" %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+      <li class="nav-item d-flex align-items-right">
+      <%= link_to calculators_path do%>
+        <ion-icon size="large" name="calculator-outline" class="nav-link p-1" color="white"  ></ion-icon>
+      <%end%>
+      </li>
         <% if user_signed_in? %>
           <li class="nav-item d-flex align-items-center">
           <div><ion-icon size="medium" name="home-sharp" class="nav-link p-1" color="white"></ion-icon> </div>
