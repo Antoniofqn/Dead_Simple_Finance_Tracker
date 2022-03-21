@@ -1,22 +1,25 @@
-<form id="compound">
-  <div>
-    <h2>Compound Interest Calculator</h2>
-    <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValue" name="principal"  placeholder="Principal" ></P>
-    <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRate" name="interest"  placeholder="Interest Rate" ></P>
-    <P style="color:blue;"><strong>Compound:</strong> <input type="text" id="getTiming" name="timing"  placeholder="number of time paid" ></P>
-    <P style="color:blue;"><strong>Time (in years) :</strong><input type="text" id="getYear" name="year"  placeholder="Year" ></P>
-    <P>
-    <input type="button" value="Calculate" id="" onclick="compoundInterest();"/></P>
-  </div>
-</form>
+<div class="container">
+  <form id="compound">
+    <div>
+      <h2>Compound Interest Calculator</h2>
+      <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValue" name="principal"  placeholder="Principal" ></P>
+      <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRate" name="interest"  placeholder="Interest Rate" ></P>
+      <P style="color:blue;"><strong>Compound:</strong> <input type="text" id="getTiming" name="timing"  placeholder="number of time paid" ></P>
+      <P style="color:blue;"><strong>Time (in years) :</strong><input type="text" id="getYear" name="year"  placeholder="Year" ></P>
+      <P>
+      <input type="button" value="Calculate" id="" onclick="compoundInterest();"/></P>
+    </div>
+  </form>
 
-<p id="outputPrincipal"> </p>
-<p id="outputInterest"> </p>
-<p id="outputYear"> </p>
-<p id="outputtime"> </p>
-<p id="compounded"> </p>
+  <p id="outputPrincipal"> </p>
+  <p id="outputInterest"> </p>
+  <p id="outputYear"> </p>
+  <p id="outputtime"> </p>
+  <p id="compounded"> </p>
 
-<p id="summary"></p>
+  <p id="summary"></p>
+</div>
+
 
 <script type="text/javascript">
   function compoundInterest() {
