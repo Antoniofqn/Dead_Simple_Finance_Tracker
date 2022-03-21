@@ -1,5 +1,5 @@
 <%= simple_form_for([current_user, transaction], remote: true) do |f| %>
-  <%= f.input :date,  as: :date, start_year: Date.today.year - 10, end_year: Date.today.year %>
+  <%= f.input :date,  as: :date, start_year: Date.today.year - 10, end_year: Date.today.year, order: [:day, :month, :year] %>
   <%= f.input :value, label: "Amount", as: :string, input_html: { data: {mask_target: "value", action:"keyup->mask#format"}, value:"0,00", maxlength: 20} %>
   <%= f.input :type_transaction, :as => :hidden, :input_html => { :value => "Income"} %>
   <%= f.input :category, collection: Transaction::INCOME_CATEGORIES %>
