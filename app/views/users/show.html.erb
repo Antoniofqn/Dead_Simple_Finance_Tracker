@@ -1,8 +1,8 @@
 <div class= "container col-12 mb-5 pb-5" style="margin-top: 20px">
-  <div class="container justify-content-center">
+  <div class="container justify-content-center card mb-2" style="border-radius: 20px;">
     <div data-controller="user-subscription" data-user-subscription-user-id-value="<%= @user.id %>" >
       <div data-user-subscription-target="stocks">
-        <ul class="d-flex justify-content-around">
+        <ul class="d-flex justify-content-around mb-0 mt-2">
           <li class="aapl">
             <p class="stock-title">AAPL/Apple</p>
             <p class="stock-value"></p>
@@ -15,11 +15,11 @@
             <p class="stock-title">IXIC/Nasdaq</p>
             <p class="stock-value"></p>
           </li>
-          <li class="trp">
-            <p class="stock-title">TC Energy</p>
+          <li class="btcusd">
+            <p class="stock-title">BTC/USD</p>
             <p class="stock-value"></p>
           </li>
-          <li class="eur/usd">
+          <li class="eurusd">
             <p class="stock-title">EUR/USD</p>
             <p class="stock-value"></p>
           </li>
@@ -101,12 +101,13 @@
         </div>
       </div>
     </div>
+    <div>
+      <%= simple_form_for :stats, url: user_path(anchor: "pie-chart"), method: "GET", html: { class: 'form-inline form-control mb-2', style: "border-radius: 20px;" } do |f| %>
+            <%= f.input :date, as: :date, discard_day: true, order: [:month, :year] %>
+            <%= f.submit "Search", class: "btn btn-primary", style: "border-radius: 20px;" %>
+          <% end %>
+    </div>
   </div>
-
-  <%= simple_form_for :stats, url: user_path(anchor: "pie-chart"), method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :date, as: :date, discard_day: true, order: [:month, :year] %>
-          <%= f.submit "Search", class: "btn btn-primary" %>
-        <% end %>
 
   <div class="container flex-direction-row-center justify-content-between mb-4 pb-3">
      <div class="card col-md-5 p-2" style= "border-radius: 15px;" id="balance-chart">
