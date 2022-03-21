@@ -101,6 +101,12 @@
   border-top: 1px solid;
   div{
     margin-right: 20px;
+    text-align: left;
+    max-width: 10px;
+  }
+
+  a{
+    text-decoration: none;
   }
   &:hover{
     box-shadow: 0 0 15px rgb(179, 178, 178);
