@@ -18,6 +18,20 @@
   <p id="compounded"> </p>
 
   <p id="summary"></p>
+
+  <form id="compound">
+    <div>
+      <h2>Simple Interest Calculator</h2>
+      <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValueSimple" name="principal"  placeholder="Principal" ></P>
+      <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRateSimple" name="interest"  placeholder="Interest Rate" ></P>
+      <P style="color:blue;"><strong>Time (in months) :</strong><input type="text" id="getMonthSimple" name="month"  placeholder="Months" ></P>
+      <P>
+      <input type="button" value="Calculate" id="" onclick="simpleInterest();"/></P>
+    </div>
+  </form>
+
+  <p id="outputInterestSimple"> </p>
+  <p id="summarySimple"></p>
 </div>
 
 
@@ -38,5 +52,18 @@
     document.getElementById("outputtime").innerHTML = "Number of time interest paid per year: " + timing;
     document.getElementById("compounded").innerHTML = "Interest Plus Principal: " + Math.round(resultCompound * 100)/100;
     document.getElementById("summary").innerHTML = "The total amount accrued, principal plus interest, with compound interest on a principal of " + principal + " at a rate of " + interest + "% per year compounded " + timing + " times per year over " + years + " years is $" + Math.round(resultCompound * 100)/100;
+  }
+
+  function simpleInterest() {
+    let principal = document.getElementById("getPrincipalValueSimple").value;
+    let interest = document.getElementById("getInterestRateSimple").value;
+    let months = document.getElementById("getMonthSimple").value;
+
+    let interest_rate = interest/100
+    let monthYear = months/12
+    let resultSimple  = principal * interest_rate * monthYear
+
+    document.getElementById("outputInterestSimple").innerHTML = "Interest is " + interest + "%";
+    document.getElementById("summarySimple").innerHTML = "The simple interest accumulated on a principal of $ " + principal + " at a rate of " + interest + "% per year for " + monthYear + " years (" + months + " months) is $" + Math.round(resultSimple * 100)/100;
   }
 </script>
