@@ -1,37 +1,43 @@
-<div class="container">
-  <form id="compound">
-    <div>
-      <h2>Compound Interest Calculator</h2>
-      <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValue" name="principal"  placeholder="Principal" ></P>
-      <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRate" name="interest"  placeholder="Interest Rate" ></P>
-      <P style="color:blue;"><strong>Compound:</strong> <input type="text" id="getTiming" name="timing"  placeholder="number of time paid" ></P>
-      <P style="color:blue;"><strong>Time (in years) :</strong><input type="text" id="getYear" name="year"  placeholder="Year" ></P>
-      <P>
-      <input type="button" value="Calculate" id="" onclick="compoundInterest();"/></P>
+<div class="container mt-2 mb-2">
+  <div class="row justify-content-around">
+    <div class="card p-2 col-5" style="border-radius: 20px; height: fit-content;">
+      <form id="compound">
+        <h2>Compound Interest Calculator</h2>
+        <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValue" name="principal"  placeholder="Principal" ></P>
+        <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRate" name="interest"  placeholder="Interest Rate" ></P>
+        <P style="color:blue;"><strong>Compound:</strong> <input type="text" id="getTiming" name="timing"  placeholder="number of time paid" ></P>
+        <P style="color:blue;"><strong>Time (in years) :</strong><input type="text" id="getYear" name="year"  placeholder="Year" ></P>
+        <P>
+        <input type="button" value="Calculate" id="" onclick="compoundInterest();"/></P>
+        <p id="outputPrincipal"> </p>
+        <p id="outputInterest"> </p>
+        <p id="outputYear"> </p>
+        <p id="outputtime"> </p>
+        <p id="compounded"> </p>
+        <p id="summary"></p>
+      </form>
     </div>
-  </form>
 
-  <p id="outputPrincipal"> </p>
-  <p id="outputInterest"> </p>
-  <p id="outputYear"> </p>
-  <p id="outputtime"> </p>
-  <p id="compounded"> </p>
-
-  <p id="summary"></p>
-
-  <form id="compound">
-    <div>
-      <h2>Simple Interest Calculator</h2>
-      <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValueSimple" name="principal"  placeholder="Principal" ></P>
-      <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRateSimple" name="interest"  placeholder="Interest Rate" ></P>
-      <P style="color:blue;"><strong>Time (in months) :</strong><input type="text" id="getMonthSimple" name="month"  placeholder="Months" ></P>
-      <P>
-      <input type="button" value="Calculate" id="" onclick="simpleInterest();"/></P>
+    <div class="card p-2 col-5" style="border-radius: 20px; height: fit-content;">
+      <form id="compound">
+        <h2>Simple Interest Calculator</h2>
+        <P style="color:blue;"><strong>Principal Amount:</strong><input type="text" id="getPrincipalValueSimple" name="principal"  placeholder="Principal" ></P>
+        <P style="color:blue;"><strong>Anual Interest Rate (%):</strong><input type="text" id="getInterestRateSimple" name="interest"  placeholder="Interest Rate" ></P>
+        <P style="color:blue;"><strong>Time (in months) :</strong><input type="text" id="getMonthSimple" name="month"  placeholder="Months" ></P>
+        <P>
+        <input type="button" value="Calculate" id="" onclick="simpleInterest();"/></P>
+        <p id="outputInterestSimple"> </p>
+        <p id="summarySimple"></p>
+      </form>
     </div>
-  </form>
+  </div>
+  <div class="d-flex justify-content-around">
+    <div>
+    </div>
+    <div>
 
-  <p id="outputInterestSimple"> </p>
-  <p id="summarySimple"></p>
+    </div>
+  </div>
 </div>
 
 

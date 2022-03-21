@@ -49,8 +49,8 @@
                 <div>
                   <h6>Goal: R$ <%= display_as_currency(current_user.goals.last.objective) %></h6>
                   <h6>Savings: R$ <%= display_as_currency(current_user.goals.last.current_value) %></h6>
-                  <h6 data-bs-toggle="modal" data-bs-target="#form-edit">Add</h6>
-                  <h6> <%= link_to "Cancel", cancel_user_goal_path(current_user.goals.last), :method => :put, remote: true %></h6>
+                  <h6 data-bs-toggle="modal" data-bs-target="#form-edit" class="btn btn-primary" style="border-radius: 20px;">Add</h6>
+                  <h6> <%= link_to "Cancel", cancel_user_goal_path(current_user.goals.last), :method => :put, remote: true, class: "text-decoration-none" %></h6>
                 </div>
               <% end %>
             </div>
