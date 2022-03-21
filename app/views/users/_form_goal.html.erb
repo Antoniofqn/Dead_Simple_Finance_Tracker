@@ -1,5 +1,5 @@
 <%= simple_form_for([current_user, goal]) do |f| %>
   <%= f.input :name, required: true %>
-  <%= f.input :objective, label: "Objective", required: true %>
-  <%= f.button :submit, "Create Goal", class: "btn btn-primary" %>
+  <%= f.input :objective, label: "Objective",as: :string, required: true, input_html: { data: {mask_target: "value", action:"keyup->mask#format"}, value:"0,00", maxlength: 15} %>
+  <%= f.button :submit, "Create Goal", class: "btn btn-primary", "data-action":"click->mask#send" %>
 <% end %>

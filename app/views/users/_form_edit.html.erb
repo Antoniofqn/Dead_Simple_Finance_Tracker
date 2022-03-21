@@ -1,4 +1,4 @@
 <%= simple_form_for([current_user, goal]) do |f| %>
-  <%= f.input :current_value, label: "How much do you want to allocate?" %>
-  <%= f.button :submit, "Save", class: "btn btn-primary" %>
+  <%= f.input :current_value, label: "How much do you want to allocate?", as: :string, required: true, input_html: { data: {mask_target: "value", action:"keyup->mask#format"}, value:"0,00", maxlength: 15 } %>
+  <%= f.button :submit, "Save", class: "btn btn-primary", "data-action":"click->mask#send" %>
 <% end %>
