@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def user_has_photo?(user)
-    return cl_image_tag @user.photo.key, :width=>100, :gravity=>"faces", crop: :thumb, radius: "max", :aspect_ratio=>"1.0" if @user.photo.attached?
+    return cl_image_tag user.photo.key, :width=>100, :gravity=>"faces", crop: :thumb, radius: "max", :aspect_ratio=>"1.0" if user.photo.attached?
 
     image_tag "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
               width: 70, style: "border-radius:100%"

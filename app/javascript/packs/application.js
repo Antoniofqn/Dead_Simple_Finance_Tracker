@@ -14,7 +14,7 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
-
 import "chartkick/chart.js"
+// require("jquery-mask-plugin")
 
 require('jquery')

@@ -2,10 +2,10 @@
     <h5 class="modal-title" id="editModalLabel">Change transaction</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body" data-controller="mask">
     <%= simple_form_for [current_user, transaction], remote: true  do |f| %>
       <%= f.input :date %>
-      <%= f.input :value %>
+      <%= f.input :value, label: "Amount", as: :string, input_html: { data: {mask_target: "value", action:"keyup->mask#format"}, value:display_as_currency(@transaction.value), maxlength: 20} %>
       <%=
         if transaction.type_transaction == "Income"
           f.input :category, collection: Transaction::INCOME_CATEGORIES
@@ -14,6 +14,6 @@
         end
         %>
       <%= f.input :tag %>
-      <%= f.button :submit, "Change", class: "btn btn-primary" %>
+      <%= f.button :submit, "Change", class: "btn btn-primary", "data-action":"click->mask#send" %>
     <% end %>
   </div>
