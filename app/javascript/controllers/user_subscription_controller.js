@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 const apiKey = process.env.KEY_STOCKS
 
-let socket = new WebSocket(`wss://ws.twelvedata.com/v1/quotes/price?apikey=${apiKey}`);
+let socket = new WebSocket(`wss://ws.twelvedata.com/v1/quotes/price?apikey=7782c19de0ca4141a7a44025ec564df1`);
 
 export default class extends Controller {
   static targets = ["stocks"]
