@@ -24,7 +24,7 @@
 
 
   .add-expense {
-    button {
+    .plus {
         @extend %brightness-action;
         width: 35px;
         height: 35px;
