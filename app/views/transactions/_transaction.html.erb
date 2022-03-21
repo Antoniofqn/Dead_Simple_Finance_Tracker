@@ -1,5 +1,5 @@
 <div class="expense-card" data-user-id="<%= transaction.id %>">
-  <%= content_tag(:div, transaction.date)%>
+  <%= content_tag(:div, transaction.date.strftime('%d/%m/%Y'))%>
   <%= content_tag(:div, transaction.category)%>
   <%= content_tag(:div,transaction.type_transaction =="Expense" ?
   display_as_currency(transaction.value * - 1) :
