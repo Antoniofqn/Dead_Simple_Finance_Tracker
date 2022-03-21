@@ -11,8 +11,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", user_path(current_user), class: "nav-link" %>
+          <li class="nav-item d-flex align-items-center">
+          <div><ion-icon size="medium" name="home-sharp" class="nav-link p-1" color="white"></ion-icon> </div>
+           <div><%= link_to "Home", user_path(current_user), class: "nav-link p-0", style: "color:white"%></div>
           </li>
           <li class="nav-item dropdown">
             <%= navbar_avatar_has_photo?(current_user) %>
