@@ -101,12 +101,13 @@
         </div>
       </div>
     </div>
+    <div>
+      <%= simple_form_for :stats, url: user_path(anchor: "pie-chart"), method: "GET", html: { class: 'form-inline form-control mb-2' } do |f| %>
+            <%= f.input :date, as: :date, discard_day: true, order: [:month, :year] %>
+            <%= f.submit "Search", class: "btn btn-primary" %>
+          <% end %>
+    </div>
   </div>
-
-  <%= simple_form_for :stats, url: user_path(anchor: "pie-chart"), method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :date, as: :date, discard_day: true, order: [:month, :year] %>
-          <%= f.submit "Search", class: "btn btn-primary" %>
-        <% end %>
 
   <div class="container flex-direction-row-center justify-content-between mb-4 pb-3">
      <div class="card col-md-5 p-2" style= "border-radius: 15px;" id="balance-chart">
